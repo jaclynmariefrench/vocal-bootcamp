@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { UserContext } from "../user/userProvider"
 import "./NavBar.css"
 
-
 export const NavBar = (props) => {
     const {users, getUsers} = useContext(UserContext)
     
@@ -30,8 +29,10 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/goals">goals</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/login">logout</Link>
+            <Link className="navbar__link" to="/login" onClick={()=> parseInt(localStorage.removeItem("vocal_user")) }>logout</Link>
             </li>
         </ul>
     )
 }
+
+
