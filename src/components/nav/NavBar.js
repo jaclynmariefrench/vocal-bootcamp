@@ -1,18 +1,36 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { UserContext } from "../user/userProvider"
 import "./NavBar.css"
 
+
 export const NavBar = (props) => {
-    return (
-        <ul className="navbar">
+    const {users, getUsers} = useContext(UserContext)
+    
+    useEffect(
+        () => {
+            getUsers()
+        },
+        [])
+        
+        return (
+            <ul className="navbar">
             <li className="navbar__item">
-                <Link className="navbar__link" to="/home">home</Link>
+                <Link className="navbar__link" to="/">{ users.map(
+                u => {
+                    if (u.id === parseInt(localStorage.getItem("vocal_user")))
+                    {
+                        return (u.name)
+                    }
+                })
+            }</Link>
+            
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/goals">goals</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/">logout</Link>
+                <Link className="navbar__link" to="/login">logout</Link>
             </li>
         </ul>
     )

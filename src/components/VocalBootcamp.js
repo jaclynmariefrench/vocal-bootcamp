@@ -5,6 +5,7 @@ import { Redirect, Route } from "react-router-dom";
 import "./VocalBootcamp.css"
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import { UserProvider } from "./user/userProvider";
 
 export const VocalBootcamp = () => {
     return (
@@ -15,8 +16,10 @@ export const VocalBootcamp = () => {
         if (localStorage.getItem("vocal_user")) {
           return (
             <>
-              <NavBar />
-              <ApplicationViews />
+              <UserProvider>
+                <NavBar />
+                <ApplicationViews />
+              </UserProvider>
             </>
           );
         } else {
