@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { UserContext } from "../user/userProvider"
+import { UserContext } from "../user/UserProvider"
 import "./NavBar.css"
 
 export const NavBar = (props) => {

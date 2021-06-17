@@ -5,7 +5,7 @@ import { Redirect, Route } from "react-router-dom";
 import "./VocalBootcamp.css"
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
-import { UserProvider } from "./user/userProvider";
+import { UserProvider } from "./user/UserProvider";
 
 export const VocalBootcamp = () => {
     return (
