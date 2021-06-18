@@ -8,7 +8,22 @@ function AudioApp() {
     {
       title: "Soprano Five Tone Scale",
       artist: "Vocal Bootcamp",
-      src: "./public/music/SOPRANO_5_tone.mp4"
+      src: "./music/SOPRANO_5_tone.mp3"
+    },
+    {
+      title: "Soprano 1.5 Scale",
+      artist: "Vocal Bootcamp",
+      src: "./music/SOPRANO_1.5_scale.mp3"
+    },
+    {
+      title: "Soprano Zing Octave Slide",
+      artist: "Vocal Bootcamp",
+      src: "./music/SOPRANO_zing_slides.mp3"
+    },
+    {
+      title: "Soprano Octave Repeater",
+      artist: "Vocal Bootcamp",
+      src: "./music/SOPRANO_octave_repeater.mp3"
     }
   ]);
 
