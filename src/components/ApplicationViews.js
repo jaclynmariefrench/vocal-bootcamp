@@ -7,7 +7,7 @@ import { TypeForm } from "./type/TypeForm";
 import { TypeProvider } from "./type/TypeProvider";
 import { UserDetail } from "./user/UserDetail";
 import { UserProvider } from "./user/UserProvider";
-import { AudioApp } from "/Users/jaclynfrench/workspace/vocal-bootcamp/src/AudioApp";
+import  AudioApp from "./AudioApp"
 
 
 export const ApplicationViews = () => {

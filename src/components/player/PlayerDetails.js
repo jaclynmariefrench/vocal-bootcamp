@@ -1,15 +1,15 @@
 import React from 'react'
 
-export const PlayerDetails = (props ) => {
+function PlayerDetails(props) {
     return (
         <div className="c-player--details">
             <div className="details-img">
-                <img className="img" src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png" alt=""/>
+                <img src={props.song.img_src} alt="" />
             </div>
-            <h3 className="details-title">Something </h3>
-            <h4 className="details-artist">Something</h4>
+            <h3 className="details-title">{props.song.title}</h3>
+            <h4 className="details-artist">{props.song.artist}</h4>
         </div>
     )
 }
 
-
+export default PlayerDetails
