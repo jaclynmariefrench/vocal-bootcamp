@@ -9,6 +9,7 @@ import { UserProvider } from "./user/UserProvider";
 import  AudioApp from "./AudioApp"
 import { WarmUpNotesProvider } from "./notes/NotesProvider";
 import { NotesForm } from "./notes/NotesForm";
+import { NotesList } from "./notes/NotesList";
 
 
 export const ApplicationViews = () => {
@@ -18,9 +19,10 @@ export const ApplicationViews = () => {
                 <Route path="/user">
                     <UserProvider>
                         <WarmUpNotesProvider>
-                        <UserDetail />
-                        <AudioApp />
-                        <NotesForm/>
+                            <UserDetail />
+                            <AudioApp />
+                            <NotesForm/>
+                            <NotesList/>
                         </WarmUpNotesProvider>
                     </UserProvider>
                 </Route>
