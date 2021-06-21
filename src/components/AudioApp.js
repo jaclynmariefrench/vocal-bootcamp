@@ -55,8 +55,19 @@ function AudioApp() {
     },
   ]);
 
+  const filterSong = songs.filter((s) => {
+    if(s.typeNameId === 1) {
+      return s
+    } else {
+      return null
+    }
+    
+  })
+
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
+
+  // I can manually change the index in the useState current song to render at a different index. I wonder if I can use a filter method before it and store an array of the filtered indexes? 
 
   useEffect(() => {
     setNextSongIndex(() => {
