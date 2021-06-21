@@ -19,7 +19,6 @@ export const ApplicationViews = () => {
                 <Route path="/user">
                     <UserProvider>
                         <WarmUpNotesProvider>
-                            <UserDetail />
                             <AudioApp />
                             <NotesForm/>
                             <NotesList/>
