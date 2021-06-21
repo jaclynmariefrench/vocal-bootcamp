@@ -8,23 +8,51 @@ function AudioApp() {
     {
       title: "Soprano Five Tone Scale",
       artist: "Vocal Bootcamp",
-      src: "./music/SOPRANO_5_tone.mp3"
+      src: "./music/SOPRANO_5_tone.mp3",
+      typeNameId: 1
     },
     {
       title: "Soprano 1.5 Scale",
       artist: "Vocal Bootcamp",
-      src: "./music/SOPRANO_1.5_scale.mp3"
+      src: "./music/SOPRANO_1.5_scale.mp3",
+      typeNameId: 1
     },
     {
       title: "Soprano Zing Octave Slide",
       artist: "Vocal Bootcamp",
-      src: "./music/SOPRANO_zing_slides.mp3"
+      src: "./music/SOPRANO_zing_slides.mp3",
+      typeNameId: 1
     },
     {
       title: "Soprano Octave Repeater",
       artist: "Vocal Bootcamp",
-      src: "./music/SOPRANO_octave_repeater.mp3"
-    }
+      src: "./music/SOPRANO_octave_repeater.mp3",
+      typeNameId: 1
+    },
+    {
+      title: "Alto 5 tone scale",
+      artist: "Vocal Bootcamp",
+      src: "./music/ALTO_5_tone.mp3",
+      typeNameId: 2
+    },
+    {
+      title: "Alto 1.5 scale",
+      artist: "Vocal Bootcamp",
+      src: "./music/ALTO_1.5_scale.mp3",
+      typeNameId: 2
+    },
+    {
+      title: "Alto Zing Octave Slide",
+      artist: "Vocal Bootcamp",
+      src: "./music/ALTO_zing_slides.mp3",
+      typeNameId: 2
+    },
+    {
+      title: "Alto Octave Repeater",
+      artist: "Vocal Bootcamp",
+      src: "./music/ALTO_octave_repeater.mp3",
+      typeNameId: 2
+    },
   ]);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
