@@ -11,7 +11,7 @@ export const NotesForm = () => {
 
   const handleControlledInputChange = (event) => {
     const newWarmUpNotes = { ...warmUpNotes };
-    newWarmUpNotes[event.target.name] = event.target.value;
+    newWarmUpNotes[event.target.id] = event.target.value;
     setWarmUpNotes(newWarmUpNotes);
   };
 
@@ -21,7 +21,8 @@ export const NotesForm = () => {
     addWarmUpNotes({
         timestamp: Date.now(),
         notes: warmUpNotes.notes,
-      }).then(() => history.push("/userWarmUps"));
+        userId: parseInt(localStorage.getItem("vocal_user"))
+      }).then(() => history.push(`user/notes/${localStorage.getItem("vocal_user")}`));
   };
 
 
@@ -37,14 +38,13 @@ export const NotesForm = () => {
           <label htmlFor="WarmUpNotes">Write Note:</label>
           <input
             type="text"
-            id="NotesName"
-            name="name"
+            id="notes"
+            className="form_control"
+            placeholder="Enter Note Here"
             required
             autoFocus
-            className="form_control"
-            placeholder="WarmUpNotes"
             onChange={handleControlledInputChange}
-            defaultValue={warmUpNotes.notes}
+            value={warmUpNotes.notes}
           />
         </div>
       </fieldset>

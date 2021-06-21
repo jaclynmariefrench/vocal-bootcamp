@@ -6,7 +6,7 @@ export const WarmUpNotesProvider = (props) => {
     const [warmUpNotes, setWarmUpNotes] = useState([])
 
     const getWarmUpNotes = () => {
-        return fetch("http://localhost:8088/userWarmUps?_expand=user")
+        return fetch("http://localhost:8088/userWarmUps")
         .then(res=> res.json())
         .then(setWarmUpNotes)
     }
