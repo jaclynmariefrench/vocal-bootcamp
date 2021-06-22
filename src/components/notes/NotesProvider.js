@@ -28,9 +28,24 @@ export const WarmUpNotesProvider = (props) => {
             .then(getWarmUpNotes)
     }
 
+    const updateNote = note => {
+        return fetch(`http://localhost:8088/userWarmUps/${note.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(note)
+        })
+          .then(getWarmUpNotes)
+      }
+      const getNoteById = (noteId) => {
+        return fetch (`http://localhost:8088/userWarmUps/${noteId}`)
+        .then(res => res.json())
+      }
+
 return (
     <WarmUpNotesContext.Provider value={{
-        warmUpNotes, setWarmUpNotes, getWarmUpNotes, addWarmUpNotes, deleteNote
+        warmUpNotes, setWarmUpNotes, getWarmUpNotes, addWarmUpNotes, deleteNote, updateNote, getNoteById 
     }}>
         {props.children}
     </WarmUpNotesContext.Provider>

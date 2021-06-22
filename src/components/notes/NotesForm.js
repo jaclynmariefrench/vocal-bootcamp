@@ -1,34 +1,62 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { WarmUpNotesContext } from "./NotesProvider";
 
 
 export const NotesForm = () => {
-  const { addWarmUpNotes, getWarmUpNotes } = useContext(WarmUpNotesContext);
+  const { warmUpNotes, addWarmUpNotes, getWarmUpNotes, updateNote, getNoteById } = useContext(WarmUpNotesContext);
 
-  const [warmUpNotes, setWarmUpNotes] = useState({});
+  const [note, setWarmUpNotes] = useState({});
   const history = useHistory();
 
+  const {noteId} = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+
+
   const handleControlledInputChange = (event) => {
-    const newWarmUpNotes = { ...warmUpNotes };
+    const newWarmUpNotes = { ...note };
     newWarmUpNotes[event.target.id] = event.target.value;
     setWarmUpNotes(newWarmUpNotes);
   };
 
 
   const handleSaveWarmUpNotes = () => {
+    setIsLoading(true);
+    if (noteId){
+      
+      updateNote({
+          id: note.id,
+          notes: note.notes,
+          userId: parseInt(localStorage.getItem("vocal_user")),
+          timestamp: note.timestamp
+      })
+      .then(() => history.push(`/user/edit/${note.id}`))
+    }
+      else {
 
-    addWarmUpNotes({
-        timestamp: Date.now(),
-        notes: warmUpNotes.notes,
-        userId: parseInt(localStorage.getItem("vocal_user"))
-      }).then(() => history.push(`user/notes/${localStorage.getItem("vocal_user")}`));
+        addWarmUpNotes({
+            timestamp: Date.now(),
+            notes: note.notes,
+            userId: parseInt(localStorage.getItem("vocal_user"))
+          }).then(() => history.push(`user/notes/${localStorage.getItem("vocal_user")}`));
+      }
+
   };
 
 
   useEffect(() => {
-    getWarmUpNotes();
+    getWarmUpNotes().then(() => {
+      if (noteId){
+        getNoteById(noteId)
+        .then(note => {
+          setWarmUpNotes(note)
+        })
+      } else {
+        setIsLoading(false)
+      }
+    })
   }, []);
+
 
   return (
     <form className="NotesForm">
@@ -44,15 +72,16 @@ export const NotesForm = () => {
             required
             autoFocus
             onChange={handleControlledInputChange}
-            value={warmUpNotes.notes}
+            value={note.notes}
           />
         </div>
       </fieldset>
 
-      <button className="btn btn-primary" onClick={() => {
+      <button className="btn btn-primary" onClick={(event) => {
+        event.preventDefault()
         handleSaveWarmUpNotes()
       }}>
-        Add Note
+        {noteId ? <>Save Note</> : <>Add Note</>}
       </button>
     </form>
   );
