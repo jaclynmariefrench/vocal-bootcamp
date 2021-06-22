@@ -4,15 +4,19 @@ import { useState } from "react/cjs/react.development";
 import { WarmUpNotesContext } from "./NotesProvider";
 
 export const NotesList = () => {
-  const { warmUpNotes, getWarmUpNotes, deleteNote } =
-    useContext(WarmUpNotesContext);
+  const { warmUpNotes, getWarmUpNotes, deleteNote } = useContext(WarmUpNotesContext);
+  const [note, setWarmUpNotes] = useState({})
 
   useEffect(() => {
     getWarmUpNotes();
   }, []);
-
+  const { noteId } = useParams();
   const history = useHistory();
 
+  useEffect(() => {
+    const thisNote = warmUpNotes.find((n) => n.id === parseInt(noteId))
+    setWarmUpNotes(thisNote);
+  }, [noteId]);
 
   const handleDelete = (userWarmUpId) => {
     deleteNote(userWarmUpId).then(() => {

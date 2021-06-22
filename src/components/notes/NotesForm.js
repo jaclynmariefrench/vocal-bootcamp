@@ -4,34 +4,39 @@ import { WarmUpNotesContext } from "./NotesProvider";
 
 
 export const NotesForm = () => {
-  const { addWarmUpNotes, getWarmUpNotes, updateNote, getNoteById } = useContext(WarmUpNotesContext);
+  const { warmUpNotes, addWarmUpNotes, getWarmUpNotes, updateNote, getNoteById } = useContext(WarmUpNotesContext);
 
-  const [warmUpNotes, setWarmUpNotes] = useState({});
+  const [note, setWarmUpNotes] = useState({});
   const history = useHistory();
 
   const {noteId} = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const handleControlledInputChange = (event) => {
-    const newWarmUpNotes = { ...warmUpNotes };
+    const newWarmUpNotes = { ...note };
     newWarmUpNotes[event.target.id] = event.target.value;
     setWarmUpNotes(newWarmUpNotes);
   };
 
 
   const handleSaveWarmUpNotes = () => {
-
+    setIsLoading(true);
     if (noteId){
       
       updateNote({
-          notes: warmUpNotes.notes
+          id: note.id,
+          notes: note.notes,
+          userId: parseInt(localStorage.getItem("vocal_user")),
+          timestamp: note.timestamp
       })
-      .then(() => history.push(`/user/edit/${warmUpNotes.id}`))
+      .then(() => history.push(`/user/edit/${note.id}`))
     }
       else {
 
         addWarmUpNotes({
             timestamp: Date.now(),
-            notes: warmUpNotes.notes,
+            notes: note.notes,
             userId: parseInt(localStorage.getItem("vocal_user"))
           }).then(() => history.push(`user/notes/${localStorage.getItem("vocal_user")}`));
       }
@@ -46,6 +51,8 @@ export const NotesForm = () => {
         .then(note => {
           setWarmUpNotes(note)
         })
+      } else {
+        setIsLoading(false)
       }
     })
   }, []);
@@ -65,12 +72,13 @@ export const NotesForm = () => {
             required
             autoFocus
             onChange={handleControlledInputChange}
-            value={warmUpNotes.notes}
+            value={note.notes}
           />
         </div>
       </fieldset>
 
-      <button className="btn btn-primary" onClick={() => {
+      <button className="btn btn-primary" onClick={(event) => {
+        event.preventDefault()
         handleSaveWarmUpNotes()
       }}>
         {noteId ? <>Save Note</> : <>Add Note</>}
