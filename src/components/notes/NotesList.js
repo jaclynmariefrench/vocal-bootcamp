@@ -1,12 +1,22 @@
 import React, { useContext, useEffect } from "react";
+import { useHistory } from "react-router";
 import { WarmUpNotesContext } from "./NotesProvider";
 
 export const NotesList = () => {
-  const { warmUpNotes, getWarmUpNotes } = useContext(WarmUpNotesContext);
+  const { warmUpNotes, getWarmUpNotes, deleteNote } = useContext(WarmUpNotesContext);
 
   useEffect(() => {
     getWarmUpNotes();
   }, []);
+
+  const history = useHistory();
+
+
+  const handleDelete = (userWarmUpId) => {
+    deleteNote(userWarmUpId).then(() => {
+      history.push("/user");
+    });
+  };
 
   return (
     <section className="notes_container">
@@ -37,6 +47,7 @@ export const NotesList = () => {
                     second: "2-digit",
                   }).format(n.timestamp)}
                 </div>
+                <button className="btn btn-primary" onClick={()=> {handleDelete(n.id)}}>delete</button>
               </div>
             );
           })}

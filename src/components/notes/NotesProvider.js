@@ -21,10 +21,16 @@ export const WarmUpNotesProvider = (props) => {
         })
         .then(getWarmUpNotes)
     }
+    const deleteNote = userWarmUpId => {
+        return fetch(`http://localhost:8088/userWarmUps/${userWarmUpId}`, {
+            method: "DELETE"
+        })
+            .then(getWarmUpNotes)
+    }
 
 return (
     <WarmUpNotesContext.Provider value={{
-        warmUpNotes, setWarmUpNotes, getWarmUpNotes, addWarmUpNotes
+        warmUpNotes, setWarmUpNotes, getWarmUpNotes, addWarmUpNotes, deleteNote
     }}>
         {props.children}
     </WarmUpNotesContext.Provider>

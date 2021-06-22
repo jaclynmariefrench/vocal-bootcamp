@@ -4,7 +4,6 @@ import { GoalForm } from "./goal/GoalForm";
 import { GoalProvider } from "./goal/GoalProvider";
 import { TypeForm } from "./type/TypeForm";
 import { TypeProvider } from "./type/TypeProvider";
-import { UserDetail } from "./user/UserDetail";
 import { UserProvider } from "./user/UserProvider";
 import  AudioApp from "./AudioApp"
 import { WarmUpNotesProvider } from "./notes/NotesProvider";
