@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
+import { useState } from "react/cjs/react.development";
 import { WarmUpNotesContext } from "./NotesProvider";
 
 export const NotesList = () => {
-  const { warmUpNotes, getWarmUpNotes, deleteNote } = useContext(WarmUpNotesContext);
+  const { warmUpNotes, getWarmUpNotes, deleteNote } =
+    useContext(WarmUpNotesContext);
 
   useEffect(() => {
     getWarmUpNotes();
@@ -17,6 +19,7 @@ export const NotesList = () => {
       history.push("/user");
     });
   };
+
 
   return (
     <section className="notes_container">
@@ -37,8 +40,7 @@ export const NotesList = () => {
                   <h3>{n.notes}</h3>
                 </div>
                 <div>
-                  {
-                  Intl.DateTimeFormat("en-US", {
+                  {Intl.DateTimeFormat("en-US", {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
@@ -47,7 +49,22 @@ export const NotesList = () => {
                     second: "2-digit",
                   }).format(n.timestamp)}
                 </div>
-                <button className="btn btn-primary" onClick={()=> {handleDelete(n.id)}}>delete</button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    history.push(`/user/edit/${n.id}`);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    handleDelete(n.id);
+                  }}
+                >
+                  delete
+                </button>
               </div>
             );
           })}
