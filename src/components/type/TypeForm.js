@@ -1,20 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { TypeContext } from "./TypeProvider";
 // import "./Types.css"
 
 
 export const TypeForm = () => {
-  const { types, getTypes } = useContext(TypeContext);
+  const { types, getTypes, addType } = useContext(TypeContext);
 
   const [type, setTypes] = useState({});
 
-
+  const history = useHistory()
 
   const handleControlledInputChange = (event) => {
     const newType = { ...type };
-    newType[event.target.name] = event.target.value;
+    newType[event.target.id] = event.target.value;
     setTypes(newType);
   };
+
+  const handleSaveVocalType = () => {
+
+    addType({
+            typeNameId: parseInt(type.typeId),
+            userId: parseInt(localStorage.getItem("vocal_user"))
+          }).then(() => history.push(`user/goals/${localStorage.getItem("vocal_user")}`));
+      }
+
+  
+
 
   useEffect(() => {
     getTypes();
@@ -41,9 +53,12 @@ export const TypeForm = () => {
               </option>
             ))}
           </select>
+          <button className="btn btn-primary" onClick={() => {
+        handleSaveVocalType()
+      }}>Save Type</button>
         </div>
       </fieldset>
-
     </form>
   );
+
 };

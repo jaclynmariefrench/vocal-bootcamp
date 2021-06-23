@@ -6,13 +6,13 @@ export const TypeProvider = (props) => {
     const [types, setTypes] = useState([])
 
     const getTypes = () => {
-        return fetch("http://localhost:8088/voiceTypes")
+        return fetch("http://localhost:8088/voiceTypeNames")
         .then(res => res.json())
         .then(setTypes)
     }
 
     const addType = typeObj => {
-        return fetch("http://localhost:8088/voiceTypes", {
+        return fetch("http://localhost:8088/warmUpGenerator", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

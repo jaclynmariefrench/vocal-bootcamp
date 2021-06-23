@@ -4,7 +4,7 @@ import "./AudioApp.css";
 
 
 function AudioApp() {
-  const [songs ] = useState([
+  const [songs] = useState([
 
     {
       title: "Soprano Five Tone Scale",
@@ -104,7 +104,21 @@ function AudioApp() {
     }
   ]);
 
-  const filterSong = songs.filter(s => s.typeNameId === 4) 
+  // const filtering = () => {
+  //   if(){
+      
+  //   } 
+    // if(songs.filter(s=> s.typeNameId === 2)){
+    //   return s
+    // }
+    // if(songs.filter(s=> s.typeNameId === 3)){
+    //   return s
+    // }
+    // if(songs.filter(s=> s.typeNameId === 4)){
+    //   return s
+    // }
+  // }
+  const filterSong = songs.filter(s=> s.typeNameId === 2)
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
