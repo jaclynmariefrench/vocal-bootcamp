@@ -54,9 +54,57 @@ function AudioApp() {
       src: "./music/ALTO_octave_repeater.mp3",
       typeNameId: 2
     },
+    {
+      title: "Tenor 5 tone scale",
+      artist: "Vocal Bootcamp",
+      src: "./music/TENOR_5_tone.mp3",
+      typeNameId: 3
+    },
+    {
+      title: "Tenor 1.5 Scale",
+      artist: "Vocal Bootcamp",
+      src: "./music/TENOR_1.5_scale.mp3",
+      typeNameId: 3
+    },
+    {
+      title: "Tenor Octave Repeater",
+      artist: "Vocal Bootcamp",
+      src: "./music/TENOR_octave_repeater.mp3",
+      typeNameId: 3
+    },
+    {
+      title: "Tenor Zing Octave Slide",
+      artist: "Vocal Bootcamp",
+      src: "./music/TENOR_zing_slides.mp3",
+      typeNameId: 3
+    },
+    {
+      title: "Bass 5 tone scale",
+      artist: "Vocal Bootcamp",
+      src: "./music/BASS_5_tone.mp3",
+      typeNameId: 4
+    },
+    {
+      title: "Bass 1.5 Scale",
+      artist: "Vocal Bootcamp",
+      src: "./music/BASS_1.5_scale.mp3",
+      typeNameId: 4
+    },
+    {
+      title: "Bass Octave Repeater",
+      artist: "Vocal Bootcamp",
+      src: "./music/BASS_octave_repeater.mp3",
+      typeNameId: 4
+    },
+    {
+      title: "Bass Zing Octave Slide",
+      artist: "Vocal Bootcamp",
+      src: "./music/BASS_zing_slides.mp3",
+      typeNameId: 4
+    }
   ]);
 
-  const filterSong = songs.filter(s => s.typeNameId === 1) 
+  const filterSong = songs.filter(s => s.typeNameId === 4) 
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
