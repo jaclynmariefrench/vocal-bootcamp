@@ -2,9 +2,11 @@ import React, {useState, useRef, useEffect} from 'react'
 import PlayerControls from './PlayerControls';
 import PlayerDetails from './PlayerDetails';
 
+
 function Player(props) {
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+
 
     useEffect(() => {
         if (isPlaying) {
