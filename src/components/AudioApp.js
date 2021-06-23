@@ -56,7 +56,7 @@ function AudioApp() {
     },
   ]);
 
-  const filterSong = songs.filter(s => s.typeNameId === 2) 
+  const filterSong = songs.filter(s => s.typeNameId === 1) 
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
