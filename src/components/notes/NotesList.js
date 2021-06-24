@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { useState } from "react/cjs/react.development";
 import { WarmUpNotesContext } from "./NotesProvider";
+import "./notes.css"
 
 export const NotesList = () => {
   const { warmUpNotes, getWarmUpNotes, deleteNote } = useContext(WarmUpNotesContext);

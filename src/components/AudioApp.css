@@ -6,7 +6,7 @@
 }
 
 body {
-     background-color: #ddd;
+     background-color: rgb(255, 254, 254);
 
 }
 
@@ -19,10 +19,10 @@ body {
 
 .c-player {
     display: block;
-    background-color: #31313131; 
+    background-color: #03a9f4;
     padding: 50px;
     border-radius: 16px;
-    box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(255, 255, 255, 0.4);;
+    box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(194, 194, 194, 0.4);;
 }
 
 .img {
@@ -39,7 +39,7 @@ body {
 }
 
 .c-player > p {
-    color: #AAA;
+    color: rgb(253, 252, 252);
     font-size: 14px;
     text-align: center;
     font-weight: 600;
