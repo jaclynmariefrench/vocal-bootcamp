@@ -1,4 +1,4 @@
-.container--login {
+.NotesForm {
     display: flex;
     margin: 10px;
     padding: 10px;
@@ -6,12 +6,10 @@
     border-radius: 10px;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-end;
-    align-items: center;
+    align-content: flex-start;
 }
 
-.register--container {
+.notes_container {
     display: flex;
     margin: 10px;
     padding: 10px;
@@ -19,7 +17,5 @@
     border-radius: 10px;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-end;
-    align-items: center;
+    align-content: flex-start;
 }

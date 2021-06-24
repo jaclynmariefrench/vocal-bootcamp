@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 h1 {
     font-family: "Playfair Display";
+}
+
+* {
+    font-family: "Poppins";
+    font-weight: bold;
+}
+
+.vocal_bootcamp_title {
+    text-align: center;
 }

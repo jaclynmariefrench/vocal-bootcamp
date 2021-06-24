@@ -36,7 +36,7 @@ export const ApplicationViews = () => {
         <GoalProvider>
           <TypeProvider>
             <GoalForm />
-            <TypeForm />
+              <TypeForm />
           </TypeProvider>
         </GoalProvider>
       </Route>
