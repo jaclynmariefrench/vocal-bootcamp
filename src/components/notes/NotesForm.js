@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { WarmUpNotesContext } from "./NotesProvider";
+import "./notes.css"
 
 
 export const NotesForm = () => {

@@ -10,7 +10,7 @@ import { UserProvider } from "./user/UserProvider";
 export const VocalBootcamp = () => {
     return (
         <>
-        <h1>VOCAL BOOTCAMP</h1>
+        <h1 className="vocal_bootcamp_title">VOCAL BOOTCAMP</h1>
         <Route
       render={() => {
         if (localStorage.getItem("vocal_user")) {

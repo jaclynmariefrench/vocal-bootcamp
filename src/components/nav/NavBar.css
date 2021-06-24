@@ -1,0 +1,9 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-end;
+    list-style-type: none;
+    padding: 15px;
+}
