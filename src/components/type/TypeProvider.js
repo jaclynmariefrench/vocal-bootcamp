@@ -12,7 +12,8 @@ export const TypeProvider = (props) => {
     }
 
     const addType = typeObj => {
-        return fetch("http://localhost:8088/voiceTypeNames", {
+        return fetch("http://localhost:8088/warmUpGenerator", {
+     
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
