@@ -114,34 +114,32 @@ function AudioApp() {
       data => setWarmUps(data)
     )
   }, [])
+
   
-  // NEED FILTER HERE
+
+  useEffect(()=> {
+    const filteredSongs = songs.filter(s=> {
+      
+        if(s.typeNameId === warmUps.typeNameId) {
+        return filteredSongs
+      }
+    
+  }, [warmUps])})
+  
  
-const filteredSong = songs.filter(s=> {
-  warmUps.forEach(w=> {
-    if(s.typeNameId === w.typeNameId) {
-      return s
-    }
-  }
-)})
+console.log(filteredSongs)
 
-console.log(filteredSong)
+// const filteredSong = songs.filter(s=> s.typeNameId === 1)
 
-// if(warmUp.typeNameId === 2) {
-//   const filteredSong = songs.filter(s=> s.typeNameId === 2)
-//   console.log(filteredSong)
-//   return filteredSong
-// }
 
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
 
-  // I can manually change the index in the useState current song to render at a different index. I wonder if I can use a filter method before it and store an array of the filtered indexes? 
 
   useEffect(() => {
     setNextSongIndex(() => {
-      if (currentSongIndex + 1 > filteredSong.length - 1) {
+      if (currentSongIndex + 1 > songs.length - 1) {
         return 0;
       } else {
         return currentSongIndex + 1;
@@ -155,7 +153,7 @@ console.log(filteredSong)
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}
         nextSongIndex={nextSongIndex}
-        songs={filteredSong}
+        songs={songs}
       />
     </div>
   );
