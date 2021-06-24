@@ -40,10 +40,10 @@ export const NotesList = () => {
           .map((n) => {
             return (
               <div className="NoteDetail">
-                <div>
+                <div key={n.notes}>
                   <h3>{n.notes}</h3>
                 </div>
-                <div>
+                <div key={n.timestamp}>
                   {Intl.DateTimeFormat("en-US", {
                     year: "numeric",
                     month: "2-digit",

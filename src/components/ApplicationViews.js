@@ -9,6 +9,7 @@ import AudioApp from "./AudioApp";
 import { WarmUpNotesProvider } from "./notes/NotesProvider";
 import { NotesForm } from "./notes/NotesForm";
 import { NotesList } from "./notes/NotesList";
+import { WarmUpProvider } from "./generator/warmUpProvider";
 
 export const ApplicationViews = () => {
   return (
@@ -16,12 +17,18 @@ export const ApplicationViews = () => {
       <Route path="/user">
         <UserProvider>
           <WarmUpNotesProvider>
-            <AudioApp />
+            <TypeProvider>
+              <WarmUpProvider>
+            <Route path="/user">
+              <AudioApp />
+            </Route>
             <NotesForm />  
             <Route path="/user/edit/:noteId(\d+)">
                 <NotesForm />  
             </Route>
             <NotesList />
+              </WarmUpProvider>
+            </TypeProvider>
           </WarmUpNotesProvider>
         </UserProvider>
       </Route>
