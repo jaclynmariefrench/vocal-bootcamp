@@ -12,7 +12,7 @@ export const GoalProvider = (props) => {
     }
 
     const addWarmUpGoal = goalObj => {
-        return fetch("http://localhost:8088/warmUpGoals", {
+        return fetch("http://localhost:8088/warmUpGenerator", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

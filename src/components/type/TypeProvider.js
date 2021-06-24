@@ -5,6 +5,7 @@ export const TypeContext = createContext()
 export const TypeProvider = (props) => {
     const [types, setTypes] = useState([])
 
+
     const getTypes = () => {
         return fetch("http://localhost:8088/voiceTypeNames")
         .then(res => res.json())
@@ -30,4 +31,10 @@ export const TypeProvider = (props) => {
             {props.children}
         </TypeContext.Provider>
     )
-}
+
+      }
+
+
+    
+
+
