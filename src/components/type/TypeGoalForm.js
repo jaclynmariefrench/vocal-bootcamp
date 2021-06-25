@@ -9,7 +9,7 @@ import "./Types.css"
 export const TypeGoalForm = () => {
   // TYPES
   const { types, getTypes, addType } = useContext(TypeContext);
-  const {addWarmUp} = useContext(WarmUpContext) 
+  const {getWarmUps, warmUps, deletePreset} = useContext(WarmUpContext) 
   const [type, setTypes] = useState({});
 // GOALS
   const { goals, getWarmUpGoals } = useContext(GoalContext)
@@ -23,6 +23,8 @@ export const TypeGoalForm = () => {
     newType[event.target.id] = event.target.value;
     setTypes(newType);
   };
+
+
 // GOAL
   const handleGoalControlledInputChange = (event) => {
     const newGoal = { ...goal }
@@ -31,11 +33,11 @@ export const TypeGoalForm = () => {
   }
 
   const handleSaveTypeGoal = () => {
-
-        addWarmUp({
+        
+        addType({
+            id: warmUps.find(w=> w.userId === parseInt(localStorage.getItem("vocal_user"))).id,
             typeNameId: parseInt(type.typeId),
             userId: parseInt(localStorage.getItem("vocal_user")),
-            goalNameId: parseInt(goal.goalId)
           }).then(() => history.push(`/goals/${localStorage.getItem("vocal_user")}`))
         }
 
@@ -45,6 +47,10 @@ export const TypeGoalForm = () => {
   
   useEffect(() => {
     getWarmUpGoals();
+  }, []);
+
+  useEffect(() => {
+    getWarmUps();
   }, []);
 
   
@@ -89,7 +95,7 @@ export const TypeGoalForm = () => {
         </fieldset>
         <div className="typegoal_submit_button">
         <button className="btn btn-primary" onClick={() => {
-        handleSaveTypeGoal().then(()=> history.push('/user'))
+        handleSaveTypeGoal()
       }}>Save Type
       </button>
         </div>
@@ -99,7 +105,6 @@ export const TypeGoalForm = () => {
 };
 
 
-// 
 
 
 
