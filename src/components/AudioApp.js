@@ -172,6 +172,3 @@ function AudioApp() {
 
 export default AudioApp;
 
-
-
-// if(warmUps.userId === parseInt(localStorage.getItem("vocal_user"))) {}

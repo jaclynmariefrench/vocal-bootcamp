@@ -12,11 +12,10 @@ export const TypeGoalForm = () => {
   const [type, setTypes] = useState({});
   // GOALS
   const { goals, getWarmUpGoals } = useContext(GoalContext);
-
   const [goal, setWarmupGoals] = useState({});
 
   const history = useHistory();
-  // TYPE
+  
   const handleControlledInputChange = (event) => {
     const newType = { ...type };
     newType[event.target.id] = event.target.value;
@@ -25,13 +24,6 @@ export const TypeGoalForm = () => {
     newGoal[event.target.id] = event.target.value;
     setWarmupGoals(newGoal);
   };
-
-  // GOAL
-  // const handleGoalControlledInputChange = (event) => {
-  //   const newGoal = { ...goal }
-  //   newGoal[event.target.id] = event.target.value
-  //   setWarmupGoals(newGoal)
-  // }
 
   const handleSaveTypeGoal = () => {
     if (
@@ -71,8 +63,6 @@ export const TypeGoalForm = () => {
   useEffect(() => {
     getWarmUps();
   }, []);
-
-  // const handleOnClick = history.push('/user');
 
   return (
     <form className="typeGoalForm">
