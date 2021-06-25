@@ -8,7 +8,7 @@ import "./Types.css"
 
 export const TypeGoalForm = () => {
   // TYPES
-  const { types, getTypes, addType } = useContext(TypeContext);
+  const { types, getTypes, addType, addEditType } = useContext(TypeContext);
   const {getWarmUps, warmUps, deletePreset} = useContext(WarmUpContext) 
   const [type, setTypes] = useState({});
 // GOALS
@@ -34,11 +34,19 @@ export const TypeGoalForm = () => {
 
   const handleSaveTypeGoal = () => {
         
+      if (!warmUps.find(w=> w.userId === parseInt(localStorage.getItem("vocal_user")))) {
         addType({
-            id: warmUps.find(w=> w.userId === parseInt(localStorage.getItem("vocal_user"))).id,
-            typeNameId: parseInt(type.typeId),
-            userId: parseInt(localStorage.getItem("vocal_user")),
-          }).then(() => history.push(`/goals/${localStorage.getItem("vocal_user")}`))
+          typeNameId: parseInt(type.typeId),
+          userId: parseInt(localStorage.getItem("vocal_user")),
+        }).then(() => history.push(`/goals/${localStorage.getItem("vocal_user")}`))
+      }  else {
+
+        addEditType({
+              id: warmUps.find(w=> w.userId === parseInt(localStorage.getItem("vocal_user"))).id,
+              typeNameId: parseInt(type.typeId),
+              userId: parseInt(localStorage.getItem("vocal_user")),
+            }).then(() => history.push(`/goals/${localStorage.getItem("vocal_user")}`))
+      } 
         }
 
   useEffect(() => {

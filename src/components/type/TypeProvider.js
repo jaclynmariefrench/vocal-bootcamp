@@ -13,6 +13,18 @@ export const TypeProvider = (props) => {
     }
 
     const addType = typeObj => {
+        return fetch(`http://localhost:8088/warmUpGenerator/`, {
+     
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(typeObj)
+        })
+        .then(getTypes)
+    }
+
+    const addEditType = typeObj => {
         return fetch(`http://localhost:8088/warmUpGenerator/${typeObj.id}`, {
      
             method: "PUT",
@@ -27,7 +39,7 @@ export const TypeProvider = (props) => {
 
     return (
         <TypeContext.Provider value={{
-            types, getTypes, setTypes, addType
+            types, getTypes, setTypes, addType, addEditType
         }}>
             {props.children}
         </TypeContext.Provider>
