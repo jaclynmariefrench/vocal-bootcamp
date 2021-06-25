@@ -113,17 +113,16 @@ function AudioApp() {
   }, [])
 
   
-
   useEffect(()=> {
     let filtered = []
-    for (const song of songs) {
-      for (const warmUp of warmUps) {
-        if(song.typeNameId === warmUp.typeNameId){
-          filtered.push(song)
+      for (const song of songs) {
+        for (const warmUp of warmUps) {
+          if(song.typeNameId === warmUp.typeNameId && warmUp.userId === parseInt(localStorage.getItem("vocal_user"))){
+            filtered.push(song)
+          }
         }
       }
-    }
-
+    
     setFilteredSongs(filtered)
   }, [warmUps])
   
@@ -157,3 +156,6 @@ function AudioApp() {
 
 export default AudioApp;
 
+
+
+// if(warmUps.userId === parseInt(localStorage.getItem("vocal_user"))) {}

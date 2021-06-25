@@ -23,9 +23,16 @@ export const WarmUpProvider = (props) => {
         .then(getWarmUps)
     }
 
+    const deletePreset = userId => {
+        return fetch(`http://localhost:8088/warmUpGenerator/${userId}`, {
+            method: "DELETE"
+        })
+            .then(getWarmUps)
+    }
+
     return (
         <WarmUpContext.Provider value={{
-            warmUps, getWarmUps, addWarmUp
+            warmUps, getWarmUps, addWarmUp, deletePreset
         }}>
             {props.children}
         </WarmUpContext.Provider>
