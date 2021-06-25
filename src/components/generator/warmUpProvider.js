@@ -8,7 +8,7 @@ export const WarmUpProvider = (props) => {
     const getWarmUps = () => {
         return fetch("http://localhost:8088/warmUpGenerator")
         .then(res => res.json())
-        // .then(setWarmUps)
+        .then(setWarmUps)
     }
 
 
@@ -25,7 +25,7 @@ export const WarmUpProvider = (props) => {
 
     return (
         <WarmUpContext.Provider value={{
-            warmUps, getWarmUps, setWarmUps, addWarmUp
+            warmUps, getWarmUps, addWarmUp
         }}>
             {props.children}
         </WarmUpContext.Provider>

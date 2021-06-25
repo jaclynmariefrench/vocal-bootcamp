@@ -105,33 +105,28 @@ function AudioApp() {
     }
   ]);
 
-  const {getWarmUps} = useContext(WarmUpContext)
-  const [warmUps, setWarmUps] = useState([])
+  const {getWarmUps, warmUps} = useContext(WarmUpContext)
+  const [filteredSongs, setFilteredSongs] = useState([])
   
   useEffect(()=> {
     getWarmUps()
-    .then(
-      data => setWarmUps(data)
-    )
   }, [])
 
   
 
   useEffect(()=> {
-    const filteredSongs = songs.filter(s=> {
-      
-        if(s.typeNameId === warmUps.typeNameId) {
-        return filteredSongs
+    let filtered = []
+    for (const song of songs) {
+      for (const warmUp of warmUps) {
+        if(song.typeNameId === warmUp.typeNameId){
+          filtered.push(song)
+        }
       }
-    
-  }, [warmUps])})
+    }
+
+    setFilteredSongs(filtered)
+  }, [warmUps])
   
- 
-console.log(filteredSongs)
-
-// const filteredSong = songs.filter(s=> s.typeNameId === 1)
-
-
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
@@ -139,7 +134,7 @@ console.log(filteredSongs)
 
   useEffect(() => {
     setNextSongIndex(() => {
-      if (currentSongIndex + 1 > songs.length - 1) {
+      if (currentSongIndex + 1 > filteredSongs.length - 1) {
         return 0;
       } else {
         return currentSongIndex + 1;
@@ -153,7 +148,7 @@ console.log(filteredSongs)
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}
         nextSongIndex={nextSongIndex}
-        songs={songs}
+        songs={filteredSongs}
       />
     </div>
   );
