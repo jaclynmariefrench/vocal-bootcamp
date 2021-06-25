@@ -1,58 +1,69 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { TypeContext } from "./TypeProvider";
-import { GoalContext } from "../goal/GoalProvider"
+import { GoalContext } from "../goal/GoalProvider";
 import { WarmUpContext } from "../generator/warmUpProvider";
-import "./Types.css"
-
+import "./Types.css";
 
 export const TypeGoalForm = () => {
   // TYPES
   const { types, getTypes, addType, addEditType } = useContext(TypeContext);
-  const {getWarmUps, warmUps, deletePreset} = useContext(WarmUpContext) 
+  const { getWarmUps, warmUps } = useContext(WarmUpContext);
   const [type, setTypes] = useState({});
-// GOALS
-  const { goals, getWarmUpGoals } = useContext(GoalContext)
-    
-  const [goal, setWarmupGoals] = useState({})
+  // GOALS
+  const { goals, getWarmUpGoals } = useContext(GoalContext);
 
-  const history = useHistory()
-// TYPE
-  const handleTypeControlledInputChange = (event) => {
+  const [goal, setWarmupGoals] = useState({});
+
+  const history = useHistory();
+  // TYPE
+  const handleControlledInputChange = (event) => {
     const newType = { ...type };
     newType[event.target.id] = event.target.value;
     setTypes(newType);
+    const newGoal = { ...goal };
+    newGoal[event.target.id] = event.target.value;
+    setWarmupGoals(newGoal);
   };
 
-
-// GOAL
-  const handleGoalControlledInputChange = (event) => {
-    const newGoal = { ...goal }
-    newGoal[event.target.id] = event.target.value
-    setWarmupGoals(newGoal)
-  }
+  // GOAL
+  // const handleGoalControlledInputChange = (event) => {
+  //   const newGoal = { ...goal }
+  //   newGoal[event.target.id] = event.target.value
+  //   setWarmupGoals(newGoal)
+  // }
 
   const handleSaveTypeGoal = () => {
-        
-      if (!warmUps.find(w=> w.userId === parseInt(localStorage.getItem("vocal_user")))) {
-        addType({
-          typeNameId: parseInt(type.typeId),
-          userId: parseInt(localStorage.getItem("vocal_user")),
-        }).then(() => history.push(`/goals/${localStorage.getItem("vocal_user")}`))
-      }  else {
-
-        addEditType({
-              id: warmUps.find(w=> w.userId === parseInt(localStorage.getItem("vocal_user"))).id,
-              typeNameId: parseInt(type.typeId),
-              userId: parseInt(localStorage.getItem("vocal_user")),
-            }).then(() => history.push(`/goals/${localStorage.getItem("vocal_user")}`))
-      } 
-        }
+    if (
+      !warmUps.find(
+        (w) => w.userId === parseInt(localStorage.getItem("vocal_user"))
+      )
+    ) {
+      addType({
+        goalNameId: parseInt(goal.goalId),
+        typeNameId: parseInt(type.typeId),
+        userId: parseInt(localStorage.getItem("vocal_user")),
+      }).then(() =>
+        history.push(`/goals/${localStorage.getItem("vocal_user")}`)
+      );
+    } else {
+      addEditType({
+        id: warmUps.find(
+          (w) => w.userId === parseInt(localStorage.getItem("vocal_user"))
+        ).id,
+        typeNameId: parseInt(type.typeId),
+        goalNameId: parseInt(goal.goalId),
+        userId: parseInt(localStorage.getItem("vocal_user")),
+      }).then(() =>
+        history.push(`/goals/${localStorage.getItem("vocal_user")}`)
+      );
+    }
+  };
 
   useEffect(() => {
     getTypes();
   }, []);
-  
+
   useEffect(() => {
     getWarmUpGoals();
   }, []);
@@ -61,9 +72,7 @@ export const TypeGoalForm = () => {
     getWarmUps();
   }, []);
 
-  
-    // const handleOnClick = history.push('/user');
-  
+  // const handleOnClick = history.push('/user');
 
   return (
     <form className="typeGoalForm">
@@ -76,7 +85,7 @@ export const TypeGoalForm = () => {
             name="typeId"
             id="typeId"
             className="form-control"
-            onChange={handleTypeControlledInputChange}
+            onChange={handleControlledInputChange}
           >
             <option value="0">Select a Type</option>
             {types.map((t) => (
@@ -88,32 +97,35 @@ export const TypeGoalForm = () => {
         </div>
       </fieldset>
       <h2 className="warmUpGoalForm__title">Set Goal</h2>
-        <fieldset className="goal_form">
-          <div className="form-group">
-            <label htmlFor="warmUpGoal">Choose Goal: </label>
-            <select value={goal.id} name="warmUpGoal" id="goalId" className="form-control" onChange={handleGoalControlledInputChange}>
-              <option value="0">Select a Goal</option>
-              {goals.map((g) => (
-                  <option key={g.id} value={g.id}>
-                  {g.goalName}
-                </option>
-              ))}
-            </select>
-          </div>
-        </fieldset>
-        <div className="typegoal_submit_button">
-        <button className="btn btn-primary" onClick={() => {
-        handleSaveTypeGoal()
-      }}>Save Type
-      </button>
+      <fieldset className="goal_form">
+        <div className="form-group">
+          <label htmlFor="warmUpGoal">Choose Goal: </label>
+          <select
+            value={goal.id}
+            name="warmUpGoal"
+            id="goalId"
+            className="form-control"
+            onChange={handleControlledInputChange}
+          >
+            <option value="0">Select a Goal</option>
+            {goals.map((g) => (
+              <option key={g.id} value={g.id}>
+                {g.goalName}
+              </option>
+            ))}
+          </select>
         </div>
+      </fieldset>
+      <div className="typegoal_submit_button">
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            handleSaveTypeGoal();
+          }}
+        >
+          Save Type
+        </button>
+      </div>
     </form>
   );
-
 };
-
-
-
-
-
-    
