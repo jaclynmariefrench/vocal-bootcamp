@@ -12,21 +12,21 @@ export const TypeProvider = (props) => {
         .then(setTypes)
     }
 
-    const addType = typeObj => {
-        return fetch("http://localhost:8088/warmUpGenerator", {
+    // const addType = typeObj => {
+    //     return fetch("http://localhost:8088/warmUpGenerator", {
      
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(typeObj)
-        })
-        .then(getTypes)
-    }
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(typeObj)
+    //     })
+    //     .then(getTypes)
+    // }
 
     return (
         <TypeContext.Provider value={{
-            types, getTypes, addType, setTypes
+            types, getTypes, setTypes
         }}>
             {props.children}
         </TypeContext.Provider>

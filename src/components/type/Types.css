@@ -1,0 +1,31 @@
+
+.type_form {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border: solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.goal_form {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border: solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.typegoal_submit_button {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}

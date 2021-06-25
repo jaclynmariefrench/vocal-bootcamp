@@ -23,7 +23,7 @@ export const Login = props => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("vocal_user", exists.id)
-                    history.push("/")
+                    history.push("/user")
                 } else {
                     existDialog.current.showModal()
                 }
