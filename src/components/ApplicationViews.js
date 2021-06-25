@@ -1,8 +1,7 @@
 import React from "react";
 import { Route } from "react-router";
-import { GoalForm } from "./goal/GoalForm";
 import { GoalProvider } from "./goal/GoalProvider";
-import { TypeForm } from "./type/TypeForm";
+import { TypeGoalForm } from "./type/TypeGoalForm";
 import { TypeProvider } from "./type/TypeProvider";
 import { UserProvider } from "./user/UserProvider";
 import AudioApp from "./AudioApp";
@@ -35,8 +34,9 @@ export const ApplicationViews = () => {
       <Route path="/goals">
         <GoalProvider>
           <TypeProvider>
-            <GoalForm />
-              <TypeForm />
+            <WarmUpProvider>
+              <TypeGoalForm />
+            </WarmUpProvider>
           </TypeProvider>
         </GoalProvider>
       </Route>

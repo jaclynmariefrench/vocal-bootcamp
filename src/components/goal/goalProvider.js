@@ -11,20 +11,20 @@ export const GoalProvider = (props) => {
         .then(setWarmupGoals)
     }
 
-    const addWarmUpGoal = goalObj => {
-        return fetch("http://localhost:8088/warmUpGoals", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(goalObj)
-        })
-        .then(getWarmUpGoals)
-    }
+    // const addWarmUpGoal = goalObj => {
+    //     return fetch("http://localhost:8088/warmUpGenerator", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(goalObj)
+    //     })
+    //     .then(getWarmUpGoals)
+    // }
 
     return (
         <GoalContext.Provider value={{
-            goals, getWarmUpGoals, addWarmUpGoal, setWarmupGoals
+            goals, getWarmUpGoals, setWarmupGoals
         }}>
             {props.children}
         </GoalContext.Provider>
