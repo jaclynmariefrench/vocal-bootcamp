@@ -15,6 +15,7 @@ export const TypeGoalForm = () => {
   const [goal, setWarmupGoals] = useState({});
 
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(true);
   
   const handleControlledInputChange = (event) => {
     const newType = { ...type };
@@ -26,30 +27,37 @@ export const TypeGoalForm = () => {
   };
 
   const handleSaveTypeGoal = () => {
-    if (
-      !warmUps.find(
-        (w) => w.userId === parseInt(localStorage.getItem("vocal_user"))
-      )
-    ) {
-      addType({
-        goalNameId: parseInt(goal.goalId),
-        typeNameId: parseInt(type.typeId),
-        userId: parseInt(localStorage.getItem("vocal_user")),
-      }).then(() =>
-        history.push(`/goals/${localStorage.getItem("vocal_user")}`)
-      );
+    if(type.id === 0 || goal.id === 0) {
+      window.alert("Please select all options!")
     } else {
-      addEditType({
-        id: warmUps.find(
+      setIsLoading(true);
+      if (
+        !warmUps.find(
           (w) => w.userId === parseInt(localStorage.getItem("vocal_user"))
-        ).id,
-        typeNameId: parseInt(type.typeId),
-        goalNameId: parseInt(goal.goalId),
-        userId: parseInt(localStorage.getItem("vocal_user")),
-      }).then(() =>
-        history.push(`/goals/${localStorage.getItem("vocal_user")}`)
-      );
+        )
+      ) {
+        addType({
+          goalNameId: parseInt(goal.goalId),
+          typeNameId: parseInt(type.typeId),
+          userId: parseInt(localStorage.getItem("vocal_user")),
+        }).then(() =>
+          history.push(`/goals/${localStorage.getItem("vocal_user")}`)
+        );
+      } else {
+        addEditType({
+          id: warmUps.find(
+            (w) => w.userId === parseInt(localStorage.getItem("vocal_user"))
+          ).id,
+          typeNameId: parseInt(type.typeId),
+          goalNameId: parseInt(goal.goalId),
+          userId: parseInt(localStorage.getItem("vocal_user")),
+        }).then(() =>
+          history.push(`/goals/${localStorage.getItem("vocal_user")}`)
+        ).then(()=>  history.push(`/user/${localStorage.getItem("vocal_user")}`));
+      }
     }
+    
+    
   };
 
   useEffect(() => {
@@ -110,7 +118,7 @@ export const TypeGoalForm = () => {
         <button
           className="btn btn-primary"
           onClick={() => {
-            handleSaveTypeGoal();
+            handleSaveTypeGoal()
           }}
         >
           Save Type
