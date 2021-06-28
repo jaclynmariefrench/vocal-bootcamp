@@ -36,20 +36,18 @@ export const Login = props => {
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
-
-            <section>
+            <section className="form--section">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Vocal Bootcamp</h1>
                     <h2>Welcome!</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                    <fieldset className="form--fieldset">
+                        <label htmlFor="inputEmail"> Email address: </label>
                         <input ref={email} type="email"
                             id="email"
                             className="form-control"
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
-                    <fieldset>
+                    <fieldset className="form--fieldset">
                         <button type="submit">
                             Sign in
                         </button>
