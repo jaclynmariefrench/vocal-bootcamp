@@ -27,10 +27,14 @@ export const TypeGoalForm = () => {
   };
 
   const handleSaveTypeGoal = () => {
-    if(type.id === 0 || goal.id === 0) {
+    // CAN'T GET CONDITIONAL TO WORK
+    if(parseInt(type.typeId) === 0 || parseInt(goal.goalId) === 0) {
       window.alert("Please select all options!")
-    } else {
+    } 
+    // ENDS HERE GOES STRAIGHT TO NEXT LINE
+    else {
       setIsLoading(true);
+
       if (
         !warmUps.find(
           (w) => w.userId === parseInt(localStorage.getItem("vocal_user"))
@@ -41,7 +45,7 @@ export const TypeGoalForm = () => {
           typeNameId: parseInt(type.typeId),
           userId: parseInt(localStorage.getItem("vocal_user")),
         }).then(() =>
-          history.push(`/goals/${localStorage.getItem("vocal_user")}`)
+          history.push("/user")
         );
       } else {
         addEditType({
@@ -51,9 +55,7 @@ export const TypeGoalForm = () => {
           typeNameId: parseInt(type.typeId),
           goalNameId: parseInt(goal.goalId),
           userId: parseInt(localStorage.getItem("vocal_user")),
-        }).then(() =>
-          history.push(`/goals/${localStorage.getItem("vocal_user")}`)
-        ).then(()=>  history.push(`/user/${localStorage.getItem("vocal_user")}`));
+        }).then(()=>  history.push("/user"));
       }
     }
     
@@ -117,7 +119,8 @@ export const TypeGoalForm = () => {
       <div className="typegoal_submit_button">
         <button
           className="btn btn-primary"
-          onClick={() => {
+          onClick={(event) => {
+            event.preventDefault()
             handleSaveTypeGoal()
           }}
         >

@@ -117,7 +117,7 @@ function AudioApp() {
       artist: "Vocal Bootcamp",
       src: "./music/BASS_Zing_Slides.mp3",
       typeNameId: 4,
-      goalNameId: 3
+      goalNameId: 4
     }
   ]);
 
