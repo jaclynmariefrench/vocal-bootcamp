@@ -41,7 +41,7 @@ export const NotesForm = () => {
             timestamp: Date.now(),
             notes: note.notes,
             userId: parseInt(localStorage.getItem("vocal_user"))
-          }).then(() => history.push(`user/`))
+          }).then(() => history.push(`user/${localStorage.getItem("vocal_user")}`))
       }
 
   };
