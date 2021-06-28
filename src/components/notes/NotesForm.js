@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { WarmUpNotesContext } from "./NotesProvider";
 import "./notes.css"
+import { render } from "@testing-library/react";
 
 
 export const NotesForm = () => {
@@ -21,6 +22,7 @@ export const NotesForm = () => {
   };
 
 
+
   const handleSaveWarmUpNotes = () => {
     setIsLoading(true);
     if (noteId){
@@ -31,7 +33,7 @@ export const NotesForm = () => {
           userId: parseInt(localStorage.getItem("vocal_user")),
           timestamp: note.timestamp
       })
-      .then(() => history.push(`/user/edit/${note.id}`))
+      .then(() => history.push(`/user`))
     }
       else {
 
@@ -39,7 +41,7 @@ export const NotesForm = () => {
             timestamp: Date.now(),
             notes: note.notes,
             userId: parseInt(localStorage.getItem("vocal_user"))
-          }).then(() => history.push(`user/notes/${localStorage.getItem("vocal_user")}`));
+          }).then(() => history.push(`user/`))
       }
 
   };
@@ -61,10 +63,9 @@ export const NotesForm = () => {
 
   return (
     <form className="NotesForm">
-      <h2 className="NotesForm__title">Add New Notes</h2>
+      <h2 className="NotesForm__title">{noteId ? <>Save Edit Note</> : <>Add New Note</>}</h2>
       <fieldset>
         <div className="form_group">
-          <label htmlFor="WarmUpNotes">Write Note:</label>
           <input
             type="text"
             id="notes"
@@ -81,6 +82,7 @@ export const NotesForm = () => {
       <button className="btn btn-primary" onClick={(event) => {
         event.preventDefault()
         handleSaveWarmUpNotes()
+        
       }}>
         {noteId ? <>Save Note</> : <>Add Note</>}
       </button>
@@ -90,6 +92,7 @@ export const NotesForm = () => {
 
 
 
-// will add to save later 
-// userId: warmUpNotes.parseInt(localStorage.getItem("vocal_user")),
-// audioId: warmUpNotes.audioId
+
+
+
+// 
