@@ -115,9 +115,9 @@ function AudioApp() {
     {
       title: "Bass Zing Octave Slide",
       artist: "Vocal Bootcamp",
-      src: "./music/BASS_zing_slides.mp3",
+      src: "./music/BASS_Zing_Slides.mp3",
       typeNameId: 4,
-      goalNameId: 3
+      goalNameId: 4
     }
   ]);
 
@@ -133,7 +133,7 @@ function AudioApp() {
     let filtered = []
       for (const song of songs) {
         for (const warmUp of warmUps) {
-          if(song.typeNameId === warmUp.typeNameId && song.goalNameId === warmUp.typeNameId && warmUp.userId === parseInt(localStorage.getItem("vocal_user"))){
+          if(song.typeNameId === warmUp.typeNameId && song.goalNameId === warmUp.goalNameId && warmUp.userId === parseInt(localStorage.getItem("vocal_user"))){
             filtered.push(song)
           }
         }

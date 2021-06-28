@@ -18,9 +18,7 @@ export const ApplicationViews = () => {
           <WarmUpNotesProvider>
             <TypeProvider>
               <WarmUpProvider>
-            <Route path="/user">
               <AudioApp />
-            </Route>
             <NotesForm />  
             <Route path="/user/edit/:noteId(\d+)">
                 <NotesForm />  
