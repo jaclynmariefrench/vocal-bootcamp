@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { useState } from "react/cjs/react.development";
 import { WarmUpNotesContext } from "./NotesProvider";
+import AliceCarousel from 'react-alice-carousel';
 import "./notes.css"
 
 export const NotesList = () => {
@@ -27,11 +28,18 @@ export const NotesList = () => {
 
 
   return (
+    
+
     <section className="notes_container">
       <header>
         <h2 className="title_notes">Notes</h2>
       </header>
+      
       <div className="NotesList">
+        <AliceCarousel
+        className="carousel-notes"
+        >
+
         {warmUpNotes
           .filter((n) => {
             if (n.userId === parseInt(localStorage.getItem("vocal_user"))) {
@@ -72,8 +80,13 @@ export const NotesList = () => {
                 </button>
               </div>
             );
+            
           })}
+        </AliceCarousel>
+          
       </div>
+          
     </section>
+    
   );
 };

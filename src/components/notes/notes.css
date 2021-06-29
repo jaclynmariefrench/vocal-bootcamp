@@ -18,4 +18,23 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
+    width: fit-content;
+}
+
+.carousel-notes {
+    margin: 10px;
+    padding: 10px;
+    border: solid black;
+    border-radius: 10px;
+    align-content: space-between;
+    width: fit-content;
+}
+
+.NoteDetail {
+    margin: 10px;
+    padding: 10px;
+    border: solid black;
+    border-radius: 10px;
+    align-content: space-between;
+    width: fit-content;
 }

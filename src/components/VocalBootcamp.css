@@ -8,10 +8,25 @@ h1 {
 }
 
 * {
+    
     font-family: "Poppins";
     font-weight: bold;
 }
 
 .vocal_bootcamp_title {
     text-align: center;
+}
+
+.overallUser {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.notes--div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }

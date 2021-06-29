@@ -15,12 +15,12 @@ export const VocalBootcamp = () => {
       render={() => {
         if (localStorage.getItem("vocal_user")) {
           return (
-            <>
+            <div className="overallUser">
               <UserProvider>
                 <NavBar />
                 <ApplicationViews />
               </UserProvider>
-            </>
+            </div>
           );
         } else {
           return <Redirect to="/login" />;

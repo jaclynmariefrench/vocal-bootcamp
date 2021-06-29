@@ -9,6 +9,7 @@ import { WarmUpNotesProvider } from "./notes/NotesProvider";
 import { NotesForm } from "./notes/NotesForm";
 import { NotesList } from "./notes/NotesList";
 import { WarmUpProvider } from "./generator/warmUpProvider";
+import "./VocalBootcamp.css"
 
 export const ApplicationViews = () => {
   return (
@@ -19,13 +20,15 @@ export const ApplicationViews = () => {
             <TypeProvider>
               <WarmUpProvider>
               <AudioApp />
+            <div className="notes--div">
             <Route path="/user/">
               <NotesForm />  
             </Route>
             <Route exact path="/user/edit/:noteId(\d+)">
                 <NotesForm />  
             </Route>
-            <NotesList />
+            <NotesList/>
+            </div>
               </WarmUpProvider>
             </TypeProvider>
           </WarmUpNotesProvider>
