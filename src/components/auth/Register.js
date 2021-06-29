@@ -55,25 +55,26 @@ export const Register = (props) => {
                 <div>Account with that email address already exists</div>
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
-
+        <section className="register--section">
             <form className="form--login" onSubmit={handleRegister}>
                 <h2 className="h3 mb-3 font-weight-normal">Please Register for Vocal Bootcamp</h2>
-                <fieldset>
+                <fieldset className="register--fieldset">
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
                 </fieldset>
-                <fieldset>
+                <fieldset className="register--fieldset">
                     <label htmlFor="lastName"> Last Name </label>
                     <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="register--fieldset">
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="register--fieldset">
                     <button type="submit"> Sign in </button>
                 </fieldset>
             </form>
+        </section>
         </main>
     )
 }

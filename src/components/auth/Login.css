@@ -28,13 +28,26 @@
 
 .register--container {
     display: flex;
-    margin: 10px;
     padding: 10px;
-    border: solid black;
-    border-radius: 10px;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+    align-content: center;
+    background-color: #6EA171;
+    margin-top: 70px;
+    height: 450px;
+}
+
+.register--section {
+    border: solid black;
+    border-radius: 10px;
+    padding: 60px;
+    background-color: white;
+}
+
+.register--fieldset {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
 }
