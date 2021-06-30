@@ -1,9 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, Component } from "react";
 import { useHistory, useParams } from "react-router";
 import { useState } from "react/cjs/react.development";
 import { WarmUpNotesContext } from "./NotesProvider";
-import AliceCarousel from 'react-alice-carousel';
 import "./notes.css"
+
+
 
 export const NotesList = () => {
   const { warmUpNotes, getWarmUpNotes, deleteNote } = useContext(WarmUpNotesContext);
@@ -36,10 +37,7 @@ export const NotesList = () => {
       </header>
       
       <div className="NotesList">
-        <AliceCarousel
-        className="carousel-notes"
-        >
-
+      
         {warmUpNotes
           .filter((n) => {
             if (n.userId === parseInt(localStorage.getItem("vocal_user"))) {
@@ -82,8 +80,7 @@ export const NotesList = () => {
             );
             
           })}
-        </AliceCarousel>
-          
+  
       </div>
           
     </section>
