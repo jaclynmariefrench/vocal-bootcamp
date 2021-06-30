@@ -1,24 +1,37 @@
+.typeGoalForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    background-color: #6EA171;
+}
+
 
 .type_form {
     display: flex;
     margin: 10px;
     padding: 10px;
+    width: fit-content;
     border: solid black;
     border-radius: 10px;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
+    background-color: white;
+    
 }
 
 .goal_form {
     display: flex;
     margin: 10px;
     padding: 10px;
+    width: fit-content;
     border: solid black;
     border-radius: 10px;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
+    background-color: white;
+    
 }
 
 .typegoal_submit_button {
@@ -28,4 +41,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
+    grid-column: 1/4;
+    
+    
 }
+

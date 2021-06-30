@@ -76,10 +76,9 @@ export const TypeGoalForm = () => {
 
   return (
     <form className="typeGoalForm">
-      <h2 className="typeForm__title">Set Type</h2>
       <fieldset className="type_form">
+      <h2 className="typeForm__title">Set Type</h2>
         <div className="form-group">
-          <label htmlFor="type">Choose Type: </label>
           <select
             value={type.id}
             name="typeId"
@@ -96,10 +95,10 @@ export const TypeGoalForm = () => {
           </select>
         </div>
       </fieldset>
-      <h2 className="warmUpGoalForm__title">Set Goal</h2>
+      
       <fieldset className="goal_form">
+      <h2 className="warmUpGoalForm__title">Set Goal</h2>
         <div className="form-group">
-          <label htmlFor="warmUpGoal">Choose Goal: </label>
           <select
             value={goal.id}
             name="warmUpGoal"
