@@ -63,8 +63,8 @@ export const NotesForm = () => {
 
   return (
     <form className="NotesForm">
+      <fieldset className="notes_add">
       <h2 className="NotesForm__title">{noteId ? <>Save Edit Note</> : <>Add New Note</>}</h2>
-      <fieldset>
         <div className="form_group">
           <input
             type="text"

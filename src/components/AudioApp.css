@@ -6,9 +6,9 @@
 
 
 .AudioApp {
-    display: flex;
-    align-items: center;
-    justify-content: center ;
+    /* display: flex; */
+    grid-column: 2;
+    justify-content: center;
     min-height: 30px;
 }
 

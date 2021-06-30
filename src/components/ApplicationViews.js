@@ -19,6 +19,7 @@ export const ApplicationViews = () => {
           <WarmUpNotesProvider>
             <TypeProvider>
               <WarmUpProvider>
+              <div className="userpage">
               <AudioApp />
              <div className="notes--div">
             <Route path="/user/">
@@ -29,6 +30,7 @@ export const ApplicationViews = () => {
             </Route>
             <NotesList/>
             </div> 
+              </div>
               </WarmUpProvider>
             </TypeProvider>
           </WarmUpNotesProvider>
