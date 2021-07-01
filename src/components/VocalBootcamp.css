@@ -18,21 +18,42 @@ h1 {
 }
 
 .overallUser {
-    display: flex;
-    flex-direction: column;
-    align-content: stretch;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
+
 }
 
+.audio-container {
+    display: flex;
+    grid-row: 2;
+    justify-content: space-around;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.notes--add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 3;
+    
+}
+
+.notes--list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 3;
+}
 /* .notes--div {
     display: grid;
     grid-template-columns: 30% 70%;
     justify-items: center;
 } */
 
-.userpage {
+/* .userpage {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-}
+} */
