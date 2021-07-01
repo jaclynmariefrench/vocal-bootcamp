@@ -48,7 +48,7 @@ export const Login = props => {
                             required autoFocus />
                     </fieldset>
                     <fieldset className="form--fieldset">
-                        <button type="submit">
+                        <button type="submit" className="btn btn-primary mybtn">
                             Sign in
                         </button>
                     </fieldset>
