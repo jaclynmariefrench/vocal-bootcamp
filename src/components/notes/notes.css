@@ -33,18 +33,13 @@
     
 }
 
-/* .btn btn-primary-edit {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.notebtnedit {
+    margin: 5px;
 }
 
- .btn btn-primary-delete {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-
-} */
+.notebtndelete {
+    margin: 5px;
+}
 
 .NotesList{
     display: grid;
