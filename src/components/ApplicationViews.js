@@ -19,16 +19,21 @@ export const ApplicationViews = () => {
           <WarmUpNotesProvider>
             <TypeProvider>
               <WarmUpProvider>
+              <div className="audio-container">
               <AudioApp />
-             <div className="notes--div">
+              </div>
+             <div className="notes--add">
             <Route path="/user/">
               <NotesForm />  
             </Route>
+            </div>
+            <div className="notes--list">
             <Route exact path="/user/edit/:noteId(\d+)">
                 <NotesForm />  
             </Route>
             <NotesList/>
-            </div> 
+            </div>
+             
               </WarmUpProvider>
             </TypeProvider>
           </WarmUpNotesProvider>

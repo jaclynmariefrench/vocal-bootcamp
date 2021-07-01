@@ -62,9 +62,10 @@ export const NotesForm = () => {
 
 
   return (
-    <form className="NotesForm">
+    <div className="notes--add--container">
       <h2 className="NotesForm__title">{noteId ? <>Save Edit Note</> : <>Add New Note</>}</h2>
-      <fieldset>
+    <form className="NotesForm">
+      <fieldset className="notes_add">
         <div className="form_group">
           <input
             type="text"
@@ -87,6 +88,7 @@ export const NotesForm = () => {
         {noteId ? <>Save Note</> : <>Add Note</>}
       </button>
     </form>
+    </div>
   );
 };
 

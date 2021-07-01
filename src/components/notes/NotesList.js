@@ -32,10 +32,7 @@ export const NotesList = () => {
     
 
     <section className="notes_container">
-      <header>
-        <h2 className="title_notes">Notes</h2>
-      </header>
-      
+      <h2 className="title_notes">Notes</h2>
       <div className="NotesList">
       
         {warmUpNotes
@@ -48,7 +45,7 @@ export const NotesList = () => {
             return (
               <div className="NoteDetail">
                 <div key={n.notes}>
-                  <h3>{n.notes}</h3>
+                  <p>{n.notes}</p>
                 </div>
                 <div key={n.timestamp}>
                   {Intl.DateTimeFormat("en-US", {
@@ -61,7 +58,7 @@ export const NotesList = () => {
                   }).format(n.timestamp)}
                 </div>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary-edit"
                   onClick={() => {
                     history.push(`/user/edit/${n.id}`);
                   }}
@@ -69,7 +66,7 @@ export const NotesList = () => {
                   Edit
                 </button>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary-delete"
                   onClick={() => {
                     handleDelete(n.id);
                   }}
