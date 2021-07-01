@@ -9,9 +9,12 @@ import { WarmUpNotesProvider } from "./notes/NotesProvider";
 import { NotesForm } from "./notes/NotesForm";
 import { NotesList } from "./notes/NotesList";
 import { WarmUpProvider } from "./generator/warmUpProvider";
-import "./VocalBootcamp.css"
+import "./VocalBootcamp.css";
+
+
 
 export const ApplicationViews = () => {
+  
   return (
     <>
       <Route path="/user">
@@ -19,21 +22,21 @@ export const ApplicationViews = () => {
           <WarmUpNotesProvider>
             <TypeProvider>
               <WarmUpProvider>
-              <div className="audio-container">
-              <AudioApp />
-              </div>
-             <div className="notes--add">
-            <Route path="/user/">
-              <NotesForm />  
-            </Route>
-            </div>
-            <div className="notes--list">
-            <Route exact path="/user/edit/:noteId(\d+)">
-                <NotesForm />  
-            </Route>
-            <NotesList/>
-            </div>
-             
+                <div className="audio-container">
+                  <AudioApp />
+                </div>
+                <div className="notes--add">
+                  <Route exact path="/user/">
+                    <NotesForm />
+                    <NotesList/>
+                  </Route>
+                </div>
+                <div className="notes--list">
+                  <Route exact path="/user/edit/:noteId(\d+)">
+                    <NotesForm />
+                    <NotesList />
+                  </Route>
+                </div>
               </WarmUpProvider>
             </TypeProvider>
           </WarmUpNotesProvider>
