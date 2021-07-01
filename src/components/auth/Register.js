@@ -71,7 +71,7 @@ export const Register = (props) => {
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset className="register--fieldset">
-                    <button type="submit"> Sign in </button>
+                    <button type="submit" className="btn btn-primary mybtn"> Sign in </button>
                 </fieldset>
             </form>
         </section>

@@ -80,7 +80,7 @@ export const NotesForm = () => {
         </div>
       </fieldset>
 
-      <button className="btn btn-primary" onClick={(event) => {
+      <button className="btn btn-primary mybtn" onClick={(event) => {
         event.preventDefault()
         handleSaveWarmUpNotes()
         

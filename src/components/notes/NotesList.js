@@ -59,7 +59,7 @@ export const NotesList = () => {
                 </div>
                 <button
                   type="button"
-                  className="btn btn-primary btn-sm notebtnedit"
+                  className="btn btn-primary btn-sm mybtn notebtnedit"
                   onClick={() => {
                     history.push(`/user/edit/${n.id}`);
                   }}
@@ -68,7 +68,7 @@ export const NotesList = () => {
                 </button>
                 <button
                   type="button"
-                  className="btn btn-primary btn-sm notebtndelete"
+                  className="btn btn-primary btn-sm mybtn notebtndelete"
                   onClick={() => {
                     handleDelete(n.id);
                   }}
