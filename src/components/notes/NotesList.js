@@ -58,7 +58,8 @@ export const NotesList = () => {
                   }).format(n.timestamp)}
                 </div>
                 <button
-                  className="btn btn-primary-edit"
+                  type="button"
+                  className="btn btn-primary btn-sm"
                   onClick={() => {
                     history.push(`/user/edit/${n.id}`);
                   }}
@@ -66,7 +67,8 @@ export const NotesList = () => {
                   Edit
                 </button>
                 <button
-                  className="btn btn-primary-delete"
+                  type="button"
+                  className="btn btn-primary btn-sm"
                   onClick={() => {
                     handleDelete(n.id);
                   }}
