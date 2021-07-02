@@ -49,6 +49,9 @@ export const Register = (props) => {
     }
 
     return (
+        <>
+        
+        <h1 className="title_login">VOCAL BOOTCAMP</h1>
         <main style={{ textAlign: "center" }} className="register--container">
 
             <dialog className="dialog dialog--password" ref={conflictDialog}>
@@ -76,6 +79,7 @@ export const Register = (props) => {
             </form>
         </section>
         </main>
+        </>
     )
 }
 

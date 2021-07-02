@@ -2,13 +2,13 @@
     display: flex;
     padding: 10px;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
     align-content: center;
     background-color: #6EA171;
-    margin-top: 70px;
-    height: 450px;
+    margin-top: 100px;
+    height: 500px;
+    align-items: center;
 
 }
 
@@ -35,7 +35,7 @@
     align-items: center;
     align-content: center;
     background-color: #6EA171;
-    margin-top: 70px;
+    margin-top: 100px;
     height: 450px;
 }
 
@@ -50,4 +50,17 @@
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+}
+
+.link--register {
+    margin: 5px;
+    background-color: oldlace;
+    border: 1px solid oldlace;
+    border-radius: 10px;
+    padding: 3px;
+    color: olive;
+}
+
+.title_login {
+    text-align: center;
 }
