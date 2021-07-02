@@ -1,11 +1,26 @@
 .navbar {
-    display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     flex-wrap: wrap;
-    flex-direction: column;
-    align-content: flex-end;
     list-style-type: none;
     padding: 15px;
-    grid-column: 2;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    flex-direction: column;
+    background-image: url('./camo.png');
+}
 
+.navtitle {
+    text-align: center;
+    color: oldlace;
+    
+}
+
+.navbar__link {
+    margin: 5px;
+    background-color: oldlace;
+    border: 1px solid oldlace;
+    border-radius: 10px;
+    padding: 3px;
+    color: olive;
 }
