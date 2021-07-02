@@ -26,7 +26,7 @@ export const ApplicationViews = () => {
                   <AudioApp />
                 </div>
                 <div className="notes--add">
-                  <Route exact path="/user/">
+                  <Route path="/user" >
                     <NotesForm />
                     <NotesList/>
                   </Route>
