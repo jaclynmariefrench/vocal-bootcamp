@@ -117,7 +117,7 @@ export const TypeGoalForm = () => {
       </fieldset>
       <div className="typegoal_submit_button">
         <button
-          className="btn btn-primary"
+          className="btn btn-primary mybtn"
           onClick={(event) => {
             event.preventDefault()
             handleSaveTypeGoal()

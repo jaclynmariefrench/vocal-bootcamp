@@ -31,6 +31,8 @@ export const Login = props => {
     }
 
     return (
+        <>
+       <h1 className="title_login">VOCAL BOOTCAMP</h1>
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
@@ -58,5 +60,6 @@ export const Login = props => {
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
+        </>
     )
 }

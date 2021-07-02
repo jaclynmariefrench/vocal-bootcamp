@@ -17,12 +17,6 @@ h1 {
     text-align: center;
 }
 
-.overallUser {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-
-}
 
 .audio-container {
     display: flex;
