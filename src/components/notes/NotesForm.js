@@ -18,7 +18,7 @@ export const NotesForm = () => {
   const handleControlledInputChange = (event) => {
     const newWarmUpNotes = { ...note };
     newWarmUpNotes[event.target.id] = event.target.value;
-    setWarmUpNotes(newWarmUpNotes);
+    setWarmUpNotes(newWarmUpNotes)
   };
 
 
@@ -59,6 +59,7 @@ export const NotesForm = () => {
       }
     })
   }, []);
+
 
 
   return (
