@@ -2,6 +2,7 @@ import React, { useContext, useEffect, Component } from "react";
 import { useHistory, useParams } from "react-router";
 import { useState } from "react/cjs/react.development";
 import { WarmUpNotesContext } from "./NotesProvider";
+import Carousel from 'nuka-carousel'
 import "./notes.css"
 
 
@@ -34,7 +35,9 @@ export const NotesList = () => {
     <section className="notes_container">
       <h2 className="title_notes">Notes</h2>
       <div className="NotesList">
-      
+      <Carousel>
+
+        
         {warmUpNotes
           .filter((n) => {
             if (n.userId === parseInt(localStorage.getItem("vocal_user"))) {
@@ -79,6 +82,7 @@ export const NotesList = () => {
             );
             
           })}
+      </Carousel>
   
       </div>
           
