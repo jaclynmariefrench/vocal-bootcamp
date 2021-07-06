@@ -37,49 +37,49 @@ export const NotesList = () => {
       <div className="NotesList">
       <Carousel>
 
-        
         {warmUpNotes
           .filter((n) => {
             if (n.userId === parseInt(localStorage.getItem("vocal_user"))) {
               return n;
             }
-          })
-          .map((n) => {
-            return (
-              <div className="NoteDetail">
-                <div key={n.notes}>
-                  <p>{n.notes}</p>
+          }).reverse()
+    
+            .map((n) => {
+              return (
+                <div className="NoteDetail">
+                  <div key={n.notes}>
+                    <p>{n.notes}</p>
+                  </div>
+                  <div key={n.timestamp}>
+                    {Intl.DateTimeFormat("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      second: "2-digit",
+                    }).format(n.timestamp)}
+                  </div>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm mybtn notebtnedit"
+                    onClick={() => {
+                      history.push(`/user/edit/${n.id}`);
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm mybtn notebtndelete"
+                    onClick={() => {
+                      handleDelete(n.id);
+                    }}
+                  >
+                    delete
+                  </button>
                 </div>
-                <div key={n.timestamp}>
-                  {Intl.DateTimeFormat("en-US", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit",
-                  }).format(n.timestamp)}
-                </div>
-                <button
-                  type="button"
-                  className="btn btn-primary btn-sm mybtn notebtnedit"
-                  onClick={() => {
-                    history.push(`/user/edit/${n.id}`);
-                  }}
-                >
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-primary btn-sm mybtn notebtndelete"
-                  onClick={() => {
-                    handleDelete(n.id);
-                  }}
-                >
-                  delete
-                </button>
-              </div>
-            );
+              );
             
           })}
       </Carousel>

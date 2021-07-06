@@ -42,6 +42,7 @@ export const NotesForm = () => {
             notes: note.notes,
             userId: parseInt(localStorage.getItem("vocal_user"))
           }).then(() => history.push(`user/${localStorage.getItem("vocal_user")}`))
+          setWarmUpNotes({notes: ""})
       }
 
   };
