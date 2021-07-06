@@ -34,7 +34,6 @@ export const ApplicationViews = () => {
                 <div className="notes--list">
                   <Route exact path="/user/edit/:noteId(\d+)">
                     <NotesForm />
-                    <NotesList />
                   </Route>
                 </div>
               </WarmUpProvider>
