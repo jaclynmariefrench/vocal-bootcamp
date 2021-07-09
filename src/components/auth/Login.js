@@ -11,7 +11,7 @@ export const Login = props => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
+        return fetch(`http://eb_react_app.us-east-1.vocal-bootcamp.com/api/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }

@@ -7,13 +7,13 @@ export const TypeProvider = (props) => {
 
 
     const getTypes = () => {
-        return fetch("http://localhost:8088/voiceTypeNames")
+        return fetch("http://eb_react_app.us-east-1.vocal-bootcamp.com/api/voiceTypeNames")
         .then(res => res.json())
         .then(setTypes)
     }
 
     const addType = typeObj => {
-        return fetch(`http://localhost:8088/warmUpGenerator/`, {
+        return fetch(`http://eb_react_app.us-east-1.vocal-bootcamp.com/api/warmUpGenerator/`, {
      
             method: "POST",
             headers: {
@@ -25,7 +25,7 @@ export const TypeProvider = (props) => {
     }
 
     const addEditType = typeObj => {
-        return fetch(`http://localhost:8088/warmUpGenerator/${typeObj.id}`, {
+        return fetch(`http://eb_react_app.us-east-1.vocal-bootcamp.com/api/warmUpGenerator/${typeObj.id}`, {
      
             method: "PUT",
             headers: {
