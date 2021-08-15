@@ -27,7 +27,7 @@ export const TypeGoalForm = () => {
   };
 
   const handleSaveTypeGoal = () => {
-    // CAN'T GET CONDITIONAL TO WORK
+    // CURRENTLY WORKING ON THIS CONDITIONAL
     if(parseInt(type.typeId) === 0 || parseInt(goal.goalId) === 0) {
       window.alert("Please select all options!")
     } 
