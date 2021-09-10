@@ -6,7 +6,7 @@ export const GoalProvider = (props) => {
     const [goals, setWarmupGoals] = useState([])
 
     const getWarmUpGoals = () => {
-        return fetch(" http://localhost:8088/warmUpGoals")
+        return fetch(" http://10.244.15.44/warmUpGoals")
         .then(res => res.json())
         .then(setWarmupGoals)
     }
