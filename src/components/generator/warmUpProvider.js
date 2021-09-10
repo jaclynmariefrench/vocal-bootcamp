@@ -6,14 +6,14 @@ export const WarmUpProvider = (props) => {
     const [warmUps, setWarmUps] = useState([])
 
     const getWarmUps = () => {
-        return fetch(" https://vocal-bootcamp-mpidd.ondigitalocean.app/warmUpGenerator")
+        return fetch(" https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/warmUpGenerator")
         .then(res => res.json())
         .then(setWarmUps)
     }
 
 
     const addWarmUp = typeObj => {
-        return fetch(" https://vocal-bootcamp-mpidd.ondigitalocean.app/warmUpGenerator", {
+        return fetch(" https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/warmUpGenerator", {
             method: "POST",
             headers: {
                 "Content-WarmUp": "application/json"
@@ -24,7 +24,7 @@ export const WarmUpProvider = (props) => {
     }
 
     const deletePreset = userId => {
-        return fetch(` https://vocal-bootcamp-mpidd.ondigitalocean.app/warmUpGenerator/${userId}`, {
+        return fetch(` https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/warmUpGenerator/${userId}`, {
             method: "DELETE"
         })
             .then(getWarmUps)

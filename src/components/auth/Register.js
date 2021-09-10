@@ -11,7 +11,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(` https://vocal-bootcamp-mpidd.ondigitalocean.app/users?email=${email.current.value}`)
+        return fetch(` https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -23,7 +23,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch(" https://vocal-bootcamp-mpidd.ondigitalocean.app/users", {
+                    fetch(" https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
