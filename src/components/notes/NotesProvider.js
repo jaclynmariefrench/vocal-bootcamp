@@ -6,13 +6,13 @@ export const WarmUpNotesProvider = (props) => {
     const [warmUpNotes, setWarmUpNotes] = useState([])
 
     const getWarmUpNotes = () => {
-        return fetch(" http://10.244.15.44/userWarmUps")
+        return fetch(" https://vocal-bootcamp-mpidd.ondigitalocean.app/userWarmUps")
         .then(res=> res.json())
         .then(setWarmUpNotes)
     }
 
     const addWarmUpNotes = userNoteObj => {
-        return fetch(" http://10.244.15.44/userWarmUps", {
+        return fetch(" https://vocal-bootcamp-mpidd.ondigitalocean.app/userWarmUps", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -22,14 +22,14 @@ export const WarmUpNotesProvider = (props) => {
         .then(getWarmUpNotes)
     }
     const deleteNote = userWarmUpId => {
-        return fetch(` http://10.244.15.44/userWarmUps/${userWarmUpId}`, {
+        return fetch(` https://vocal-bootcamp-mpidd.ondigitalocean.app/userWarmUps/${userWarmUpId}`, {
             method: "DELETE"
         })
             .then(getWarmUpNotes)
     }
 
     const updateNote = note => {
-        return fetch(` http://10.244.15.44/userWarmUps/${note.id}`, {
+        return fetch(` https://vocal-bootcamp-mpidd.ondigitalocean.app/userWarmUps/${note.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const WarmUpNotesProvider = (props) => {
           .then(getWarmUpNotes)
       }
       const getNoteById = (noteId) => {
-        return fetch (` http://10.244.15.44/userWarmUps/${noteId}`)
+        return fetch (` https://vocal-bootcamp-mpidd.ondigitalocean.app/userWarmUps/${noteId}`)
         .then(res => res.json())
       }
 
