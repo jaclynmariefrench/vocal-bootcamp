@@ -1,3 +1,9 @@
+# Welcome to Vocal Bootcamp!
+
+![vocal_bootcamp_gif](https://user-images.githubusercontent.com/77642588/133023058-b1056871-21e6-48b5-8760-964a7f76864b.gif)
+
+
+
 # Link to Deployed App
 https://vocal-bootcamp-wbw2e.ondigitalocean.app/login
 ## Log In As
