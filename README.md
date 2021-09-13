@@ -1,5 +1,9 @@
 # Link to Deployed App
 https://vocal-bootcamp-wbw2e.ondigitalocean.app/login
+## Log In As
+user@demo.com
+
+
 
 # Getting Started with Create React App
 
