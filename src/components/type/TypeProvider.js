@@ -7,13 +7,13 @@ export const TypeProvider = (props) => {
 
 
     const getTypes = () => {
-        return fetch(" https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/voiceTypeNames")
+        return fetch("  https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/voiceTypeNames")
         .then(res => res.json())
         .then(setTypes)
     }
 
     const addType = typeObj => {
-        return fetch(` https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/warmUpGenerator/`, {
+        return fetch(`  https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/warmUpGenerator/`, {
      
             method: "POST",
             headers: {
@@ -25,7 +25,7 @@ export const TypeProvider = (props) => {
     }
 
     const addEditType = typeObj => {
-        return fetch(` https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/warmUpGenerator/${typeObj.id}`, {
+        return fetch(`  https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/warmUpGenerator/${typeObj.id}`, {
      
             method: "PUT",
             headers: {

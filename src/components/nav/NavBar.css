@@ -1,13 +1,11 @@
 .navbar {
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
     padding: 15px;
-    grid-row: 1;
-    grid-column-start: 1;
-    grid-column-end: 3;
     flex-direction: column;
     background-image: url('./camo.png');
+    grid-row: 1;
+    grid-column: 1/4;
 }
 
 .navtitle {

@@ -13,17 +13,23 @@ h1 {
     font-weight: bold;
 }
 
+.overallUser {
+    display: grid;
+    grid-template-rows: .5fr 2fr;
+    grid-template-columns: 1fr;
+}
+
+
 .vocal_bootcamp_title {
     text-align: center;
 }
 
 
+
 .audio-container {
     display: flex;
-    grid-row: 2;
     justify-content: space-around;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-row: 2;
 }
 
 .notes--add {
@@ -31,8 +37,8 @@ h1 {
     justify-content: center;
     align-items: center;
     grid-row: 3;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    flex-direction: row;
+    flex-wrap: wrap;
     
 }
 
@@ -41,6 +47,4 @@ h1 {
     justify-content: center;
     align-items: center;
     grid-row: 3;
-    grid-column-start: 1;
-    grid-column-end: 3;
 }

@@ -11,7 +11,7 @@ export const Login = props => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(` https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/users?email=${email.current.value}`)
+        return fetch(`  https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -35,8 +35,8 @@ export const Login = props => {
        <h1 className="title_login">VOCAL BOOTCAMP</h1>
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>
-                <div>User does not exist</div>
-                <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
+                {/* <div>User does not exist</div> */}
+                {/* <button className="button--close" onClick={e => existDialog.current.close()}>Close</button> */}
             </dialog>
             <section className="form--section">
                 <form className="form--login" onSubmit={handleLogin}>

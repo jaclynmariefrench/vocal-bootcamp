@@ -17,6 +17,7 @@ export const ApplicationViews = () => {
   
   return (
     <>
+
       <Route path="/user">
         <UserProvider>
           <WarmUpNotesProvider>
@@ -41,6 +42,7 @@ export const ApplicationViews = () => {
           </WarmUpNotesProvider>
         </UserProvider>
       </Route>
+    <div className="goals-style">
       <Route path="/goals">
         <GoalProvider>
           <TypeProvider>
@@ -50,6 +52,7 @@ export const ApplicationViews = () => {
           </TypeProvider>
         </GoalProvider>
       </Route>
+    </div>
     </>
   );
 };
