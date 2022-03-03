@@ -3,7 +3,7 @@
 ![vocal_bootcamp_gif](https://user-images.githubusercontent.com/77642588/133023058-b1056871-21e6-48b5-8760-964a7f76864b.gif)
 
 
-#Moving to new server! 
+# Moving to new server! 
 # Link to Deployed App
 Coming soon!
 ## Log In As
