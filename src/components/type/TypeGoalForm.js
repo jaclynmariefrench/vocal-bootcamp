@@ -27,12 +27,14 @@ export const TypeGoalForm = () => {
   };
 
   const handleSaveTypeGoal = () => {
-    // CURRENTLY WORKING ON THIS CONDITIONAL
-    if(parseInt(type.typeId) === 0 || parseInt(goal.goalId) === 0) {
-      window.alert("Please select all options!")
-    } 
-    // ENDS HERE GOES STRAIGHT TO NEXT LINE
-    else {
+
+    if(type.typeId === undefined && goal.goalId === undefined) {
+      window.alert("Please select a type and a goal!")
+    } else if(type.typeId === undefined) {
+      window.alert("Please select a type!")
+    } else if(goal.goalId === undefined) {
+      window.alert("Please select a goal!")
+    } else {
       setIsLoading(true);
 
       if (
@@ -58,8 +60,6 @@ export const TypeGoalForm = () => {
         }).then(()=>  history.push("/user"));
       }
     }
-    
-    
   };
 
   useEffect(() => {
