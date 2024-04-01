@@ -3,6 +3,7 @@ import {  Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../user/UserProvider";
 import "./NavBar.css";
+import backgroundImage from './camo.png';
 
 export const NavBar = (props) => {
   const { users, getUsers } = useContext(UserContext);
@@ -12,7 +13,7 @@ export const NavBar = (props) => {
   }, []);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" style={{ backgroundImage: `url(${backgroundImage})`}}>
       <Navbar.Brand href="#home" ><h1 className="navtitle">VOCAL BOOTCAMP</h1></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
