@@ -8,7 +8,7 @@ export const UserProvider = (props) => {
     const [users, setUsers] = useState([])
 
     const getUsers = () => {
-        return fetch("  https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/users")
+        return fetch("  http://localhost:3000/users")
         .then(res => res.json())
         .then(setUsers)
     }

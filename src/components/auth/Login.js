@@ -1,17 +1,15 @@
-import React, { useRef } from "react"
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom"
+import React, { useRef, useState } from "react"
+import { Link, useHistory } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 import "./Login.css"
-
 
 export const Login = props => {
     const email = useRef()
-    const password = useRef()
-    const existDialog = useRef()
+    const [showError, setShowError] = useState(false)
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`  https://vocal-bootcamp-api-cvz2a.ondigitalocean.app/users?email=${email.current.value}`)
+        return fetch(`http://localhost:3000/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -25,19 +23,19 @@ export const Login = props => {
                     localStorage.setItem("vocal_user", exists.id)
                     history.push("/user")
                 } else {
-                    existDialog.current.showModal()
+                    setShowError(true)
                 }
             })
+    }
+
+    const handleInputChange = () => {
+        setShowError(false)
     }
 
     return (
         <>
        <h1 className="title_login">VOCAL BOOTCAMP</h1>
         <main className="container--login">
-            <dialog className="dialog dialog--auth" ref={existDialog}>
-                {/* <div>User does not exist</div> */}
-                {/* <button className="button--close" onClick={e => existDialog.current.close()}>Close</button> */}
-            </dialog>
             <section className="form--section">
                 <form className="form--login" onSubmit={handleLogin}>
                     <h2>Welcome!</h2>
@@ -47,8 +45,10 @@ export const Login = props => {
                             id="email"
                             className="form-control"
                             placeholder="Email address"
-                            required autoFocus />
+                            required autoFocus 
+                            onChange={handleInputChange} />
                     </fieldset>
+                            {showError && <Alert variant="danger">User does not exist</Alert>}
                     <fieldset className="form--fieldset">
                         <button type="submit" className="btn btn-primary mybtn">
                             Sign in

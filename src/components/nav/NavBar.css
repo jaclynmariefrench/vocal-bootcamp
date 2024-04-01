@@ -3,7 +3,6 @@
     flex-wrap: nowrap;
     padding: 15px;
     flex-direction: column;
-    background-image: url('./camo.png');
     grid-row: 1;
     grid-column: 1/4;
 }
