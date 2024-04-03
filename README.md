@@ -19,7 +19,8 @@ This application initiated during my time with Nashville Software School, where 
 
 ### Why I built the project this way
 
-The requirement for passing the capstone was to have CRUD, RestAPI, and was built with React. 
+At the time of me creating this app I was a fulltime music teacher and I found it hard to assign students with warm-ups to do on a weekly basis. I thought having an app where students can know what warmups to do and having the ability to take notes would be very helpful. 
 
 ### If I had more time I would change this
 
+If I had more time I would refine the styling, maybe go into more of a draggable widget interface. I would also want to implement a backend admin experience for a teacher to upload more audio warmups for their students and also be able to manage their students accounts. 
