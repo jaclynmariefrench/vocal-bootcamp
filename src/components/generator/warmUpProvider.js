@@ -6,14 +6,14 @@ export const WarmUpProvider = (props) => {
     const [warmUps, setWarmUps] = useState([])
 
     const getWarmUps = () => {
-        return fetch("  http://localhost:3000/warmUpGenerator")
+        return fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/warmUpGenerator")
         .then(res => res.json())
         .then(setWarmUps)
     }
 
 
     const addWarmUp = typeObj => {
-        return fetch("  http://localhost:3000/warmUpGenerator", {
+        return fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/warmUpGenerator", {
             method: "POST",
             headers: {
                 "Content-WarmUp": "application/json"
@@ -24,7 +24,7 @@ export const WarmUpProvider = (props) => {
     }
 
     const deletePreset = userId => {
-        return fetch(`  http://localhost:3000/warmUpGenerator/${userId}`, {
+        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/warmUpGenerator/${userId}`, {
             method: "DELETE"
         })
             .then(getWarmUps)

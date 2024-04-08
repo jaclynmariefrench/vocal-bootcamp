@@ -7,13 +7,13 @@ export const TypeProvider = (props) => {
 
 
     const getTypes = () => {
-        return fetch("  http://localhost:3000/voiceTypeNames")
+        return fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/voiceTypeNames")
         .then(res => res.json())
         .then(setTypes)
     }
 
     const addType = typeObj => {
-        return fetch(`  http://localhost:3000/warmUpGenerator/`, {
+        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/warmUpGenerator/`, {
      
             method: "POST",
             headers: {
@@ -25,7 +25,7 @@ export const TypeProvider = (props) => {
     }
 
     const addEditType = typeObj => {
-        return fetch(`  http://localhost:3000/warmUpGenerator/${typeObj.id}`, {
+        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/warmUpGenerator/${typeObj.id}`, {
      
             method: "PUT",
             headers: {

@@ -11,7 +11,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`  http://localhost:3000/users?email=${email.current.value}`)
+        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -23,7 +23,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("  http://localhost:3000/users", {
+                    fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -35,6 +35,7 @@ export const Register = (props) => {
                     })
                         .then(res => res.json())
                         .then(createdUser => {
+                            console.log('Received response', createdUser);
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("vocal_user", createdUser.id)
                                 history.push("/goals")

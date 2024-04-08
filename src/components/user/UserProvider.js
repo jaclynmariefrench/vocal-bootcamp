@@ -8,7 +8,7 @@ export const UserProvider = (props) => {
     const [users, setUsers] = useState([])
 
     const getUsers = () => {
-        return fetch("  http://localhost:3000/users")
+        return fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/users")
         .then(res => res.json())
         .then(setUsers)
     }

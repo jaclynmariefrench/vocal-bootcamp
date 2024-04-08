@@ -6,13 +6,13 @@ export const WarmUpNotesProvider = (props) => {
     const [warmUpNotes, setWarmUpNotes] = useState([])
 
     const getWarmUpNotes = () => {
-        return fetch("  http://localhost:3000/userWarmUps")
+        return fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/userWarmUps")
         .then(res=> res.json())
         .then(setWarmUpNotes)
     }
 
     const addWarmUpNotes = userNoteObj => {
-        return fetch("  http://localhost:3000/userWarmUps", {
+        return fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/userWarmUps", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -22,14 +22,14 @@ export const WarmUpNotesProvider = (props) => {
         .then(getWarmUpNotes)
     }
     const deleteNote = userWarmUpId => {
-        return fetch(`  http://localhost:3000/userWarmUps/${userWarmUpId}`, {
+        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/userWarmUps/${userWarmUpId}`, {
             method: "DELETE"
         })
             .then(getWarmUpNotes)
     }
 
     const updateNote = note => {
-        return fetch(`  http://localhost:3000/userWarmUps/${note.id}`, {
+        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/userWarmUps/${note.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const WarmUpNotesProvider = (props) => {
           .then(getWarmUpNotes)
       }
       const getNoteById = (noteId) => {
-        return fetch (`  http://localhost:3000/userWarmUps/${noteId}`)
+        return fetch (`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/userWarmUps/${noteId}`)
         .then(res => res.json())
       }
 

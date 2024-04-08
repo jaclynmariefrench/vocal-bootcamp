@@ -9,9 +9,12 @@ export const Login = props => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:3000/users?email=${email.current.value}`)
+        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/users?email=${email.current.value}`)
             .then(res => res.json())
-            .then(user => user.length ? user[0] : false)
+            .then(user => {
+                console.log('Received response', user); // Log the response data
+                return typeof user === 'object' ? user : false;
+            });
     }
 
     const handleLogin = (e) => {
@@ -19,11 +22,13 @@ export const Login = props => {
 
         existingUserCheck()
             .then(exists => {
+                console.log('exists:', exists);
                 if (exists) {
                     localStorage.setItem("vocal_user", exists.id)
                     history.push("/user")
                 } else {
                     setShowError(true)
+                    return;
                 }
             })
     }
