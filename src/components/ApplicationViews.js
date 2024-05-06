@@ -32,14 +32,22 @@ export const ApplicationViews = () => {
                       <NotesForm />
                     </Route>
                   </div>
-                  <div className="goals-style">
-                    <TypeGoalForm />
-                  </div>
                 </GoalProvider>
               </WarmUpProvider>
             </TypeProvider>
           </WarmUpNotesProvider>
         </UserProvider>
+      </Route>
+      <Route path="/goals">
+        <TypeProvider>
+          <GoalProvider>
+            <WarmUpProvider>
+              <div className="goals-style">
+                <TypeGoalForm />
+              </div>
+            </WarmUpProvider>
+          </GoalProvider>
+        </TypeProvider>
       </Route>
     </>
   );

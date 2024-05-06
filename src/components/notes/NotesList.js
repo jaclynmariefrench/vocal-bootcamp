@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, Component } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { useState } from "react/cjs/react.development";
 import { WarmUpNotesContext } from "./NotesProvider";
 import Carousel from 'nuka-carousel'
 import "./notes.css"
