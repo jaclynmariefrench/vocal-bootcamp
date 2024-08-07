@@ -9,7 +9,7 @@ export const TypeProvider = (props) => {
     const getTypes = () => {
         return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/voiceTypeNames")
         .then(res => res.json())
-        .then(data => setTypes(data.voiceTypeNames))
+        .then(data => setTypes(data))
     }
 
     const addType = typeObj => {

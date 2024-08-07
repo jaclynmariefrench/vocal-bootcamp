@@ -8,7 +8,7 @@ export const GoalProvider = (props) => {
     const getWarmUpGoals = () => {
         return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/warmUpGoals")
         .then(res => res.json())
-        .then(data => setWarmupGoals(data.warmUpGoals))
+        .then(data => setWarmupGoals(data))
     }
 
 
