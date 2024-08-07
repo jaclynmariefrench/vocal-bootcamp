@@ -9,11 +9,22 @@ export const Login = props => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/users?email=${email.current.value}`)
-            .then(res => res.json())
-            .then(user => {
-                console.log('Received response', user); // Log the response data
-                return typeof user === 'object' ? user : false;
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com:3000/users?email=${email.current.value}`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(users => {
+                if (Array.isArray(users) && users.length > 0) {
+                    return users[0];
+                }
+                return false;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                return false;
             });
     }
 
@@ -22,13 +33,11 @@ export const Login = props => {
 
         existingUserCheck()
             .then(exists => {
-                console.log('exists:', exists);
                 if (exists) {
                     localStorage.setItem("vocal_user", exists.id)
                     history.push("/user")
                 } else {
                     setShowError(true)
-                    return;
                 }
             })
     }
@@ -68,3 +77,4 @@ export const Login = props => {
         </>
     )
 }
+

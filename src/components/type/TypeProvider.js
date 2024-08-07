@@ -7,13 +7,13 @@ export const TypeProvider = (props) => {
 
 
     const getTypes = () => {
-        return fetch("https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/voiceTypeNames")
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/voiceTypeNames")
         .then(res => res.json())
-        .then(setTypes)
+        .then(data => setTypes(data.voiceTypeNames))
     }
 
     const addType = typeObj => {
-        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/warmUpGenerator/`, {
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com:3000/warmUpGenerator/`, {
      
             method: "POST",
             headers: {
@@ -25,7 +25,7 @@ export const TypeProvider = (props) => {
     }
 
     const addEditType = typeObj => {
-        return fetch(`https://jf33c1cvbk.execute-api.us-east-2.amazonaws.com/test/warmUpGenerator/${typeObj.id}`, {
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com:3000/warmUpGenerator/${typeObj.id}`, {
      
             method: "PUT",
             headers: {
