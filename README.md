@@ -35,3 +35,6 @@ If I had more time, I would:
 ---
 
 Thank you for checking out Vocal Bootcamp! Whether you're practicing for a solo or just looking to improve, I hope this app helps you reach your vocal goals. 🎤✨
+
+## 💻 Tech stack
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
