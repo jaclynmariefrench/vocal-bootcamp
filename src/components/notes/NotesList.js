@@ -17,7 +17,7 @@ export const NotesList = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const thisNote = warmUpNotes.find((n) => n.id === parseInt(noteId))
+    const thisNote = warmUpNotes.find((n) => n.id === noteId)
     setWarmUpNotes(thisNote);
   }, [noteId]);
 

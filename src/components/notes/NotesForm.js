@@ -4,11 +4,11 @@ import { WarmUpNotesContext } from "./NotesProvider";
 import "./notes.css";
 
 export const NotesForm = () => {
-  const { warmUpNotes, addWarmUpNotes, getWarmUpNotes, updateNote, getNoteById } = useContext(WarmUpNotesContext);
+  const { warmUpNotes, addWarmUpNotes, updateNote, getNoteById } = useContext(WarmUpNotesContext);
   const history = useHistory();
-  const { noteId } = useParams();
+  const { noteId } = useParams(); 
   const [isLoading, setIsLoading] = useState(true);
-  const [note, setNote] = useState({ notes: "" }); // Initialize note state with an empty notes property
+  const [note, setNote] = useState({ notes: "" });
 
   const handleControlledInputChange = (event) => {
     const newNote = { ...note };
@@ -19,39 +19,38 @@ export const NotesForm = () => {
   const handleSaveWarmUpNotes = () => {
     setIsLoading(true);
     if (noteId) {
-      // If noteId exists, it means we're editing an existing note
       updateNote({
-        id: noteId, // Use noteId from URL params
+        id: noteId,
         notes: note.notes,
         userId: parseInt(localStorage.getItem("vocal_user")),
         timestamp: note.timestamp
-      }).then(() => history.push(`/user`));
+      }).then(() => {
+        setNote({ notes: "" });
+        history.push(`/user`);
+      });
     } else {
-      // Otherwise, we're adding a new note
       addWarmUpNotes({
         timestamp: Date.now(),
         notes: note.notes,
         userId: parseInt(localStorage.getItem("vocal_user"))
-      }).then(() => history.push(`/user/${localStorage.getItem("vocal_user")}`));
+      }).then(() => history.push(`/user`));
     }
   };
 
   useEffect(() => {
-    getWarmUpNotes().then(() => {
-      if (noteId) {
-        getNoteById(noteId).then((note) => {
-          setNote(note); // Set note state when editing an existing note
-          setIsLoading(false);
-        });
-      } else {
+    if (noteId) {
+      getNoteById(noteId).then((note) => {
+        setNote(note);
         setIsLoading(false);
-      }
-    });
-  }, [noteId]); // Update useEffect dependency to re-fetch note when noteId changes
+      });
+    } else {
+      setIsLoading(false);
+    }
+  }, [noteId]);
 
   return (
     <div className="notes--add--container">
-      <h2 className="NotesForm__title">{noteId ? "Save Edit Note" : "Add New Note"}</h2>
+      <h2 className="NotesForm__title">{noteId ? "Edit Note" : "Add New Note"}</h2>
       <form className="NotesForm">
         <fieldset className="notes_add">
           <div className="form_group">
@@ -63,7 +62,7 @@ export const NotesForm = () => {
               required
               autoFocus
               onChange={handleControlledInputChange}
-              value={note.notes}
+              value={note.notes || ""}
             />
           </div>
         </fieldset>
@@ -80,3 +79,5 @@ export const NotesForm = () => {
     </div>
   );
 };
+
+
