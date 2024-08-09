@@ -16,7 +16,7 @@ export const NavBar = (props) => {
     } else {
       // Check user ID and set current user
       const userId = localStorage.getItem("vocal_user"); // userId as string
-      const user = users.find(u => u.id === userId); // Compare as strings
+      const user = users.find(u => u.id.toString() === userId); // Ensure comparison as strings
       setCurrentUser(user);
     }
   }, [users, getUsers]);
