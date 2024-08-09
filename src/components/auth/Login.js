@@ -9,7 +9,7 @@ export const Login = props => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com:3000/users?email=${email.current.value}`)
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com/users?email=${email.current.value}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

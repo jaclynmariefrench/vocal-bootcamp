@@ -6,13 +6,13 @@ export const WarmUpNotesProvider = (props) => {
     const [warmUpNotes, setWarmUpNotes] = useState([])
 
     const getWarmUpNotes = () => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/userWarmUps")
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/userWarmUps")
         .then(res=> res.json())
         .then(setWarmUpNotes)
     }
 
     const addWarmUpNotes = userNoteObj => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/userWarmUps", {
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/userWarmUps", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -22,14 +22,14 @@ export const WarmUpNotesProvider = (props) => {
         .then(getWarmUpNotes)
     }
     const deleteNote = userWarmUpId => {
-        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com:3000/userWarmUps/${userWarmUpId}`, {
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com/userWarmUps/${userWarmUpId}`, {
             method: "DELETE"
         })
             .then(getWarmUpNotes)
     }
 
     const updateNote = note => {
-        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com:3000/userWarmUps/${note.id}`, {
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com/userWarmUps/${note.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const WarmUpNotesProvider = (props) => {
           .then(getWarmUpNotes)
       }
       const getNoteById = (noteId) => {
-        return fetch (`http://api.vocalbootcamp.jaclynmariefrench.com:3000/userWarmUps/${noteId}`)
+        return fetch (`http://api.vocalbootcamp.jaclynmariefrench.com/userWarmUps/${noteId}`)
         .then(res => res.json())
       }
 

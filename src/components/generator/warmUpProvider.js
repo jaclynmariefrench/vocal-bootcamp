@@ -6,14 +6,14 @@ export const WarmUpProvider = (props) => {
     const [warmUps, setWarmUps] = useState([])
 
     const getWarmUps = () => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/warmUpGenerator")
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator")
         .then(res => res.json())
         .then(setWarmUps)
     }
 
 
     const addWarmUp = typeObj => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/warmUpGenerator", {
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator", {
             method: "POST",
             headers: {
                 "Content-WarmUp": "application/json"
@@ -24,7 +24,7 @@ export const WarmUpProvider = (props) => {
     }
 
     const deletePreset = userId => {
-        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com:3000/warmUpGenerator/${userId}`, {
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator/${userId}`, {
             method: "DELETE"
         })
             .then(getWarmUps)

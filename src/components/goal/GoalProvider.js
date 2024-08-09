@@ -6,7 +6,7 @@ export const GoalProvider = (props) => {
     const [goals, setWarmupGoals] = useState([])
 
     const getWarmUpGoals = () => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/warmUpGoals")
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGoals")
         .then(res => res.json())
         .then(data => setWarmupGoals(data))
     }

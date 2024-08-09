@@ -12,7 +12,7 @@ export const Register = (props) => {
 
   const existingUserCheck = () => {
     return fetch(
-      `http://api.vocalbootcamp.jaclynmariefrench.com:3000/users?email=${email.current.value}`
+      `http://api.vocalbootcamp.jaclynmariefrench.com/users?email=${email.current.value}`
     )
       .then((res) => res.json())
       .then((user) => typeof user === "object");
@@ -24,7 +24,7 @@ export const Register = (props) => {
     const userExists = await existingUserCheck();
     if (!userExists) {
       const response = await fetch(
-        "http://api.vocalbootcamp.jaclynmariefrench.com:3000/users",
+        "http://api.vocalbootcamp.jaclynmariefrench.com/users",
         {
           method: "POST",
           headers: {

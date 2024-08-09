@@ -8,7 +8,7 @@ export const UserProvider = (props) => {
     const [users, setUsers] = useState([])
 
     const getUsers = () => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com:3000/users")
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/users")
             .then(res => res.json())
             .then(data => {
                 setUsers(data);
