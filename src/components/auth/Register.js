@@ -47,6 +47,10 @@ export const Register = (props) => {
     }
   };
 
+  const handleBack = () => {
+    history.goBack();
+  };
+
   return (
     <>
       <h1 className="title_login">VOCAL BOOTCAMP</h1>
@@ -100,11 +104,16 @@ export const Register = (props) => {
               />
             </fieldset>
             <fieldset className="register--fieldset">
-              <button type="submit" className="btn btn-primary mybtn">
-                {" "}
-                Sign in{" "}
+              <button type="submit" className="btn btn-primary mybtn" disabled>
+                Register
               </button>
             </fieldset>
+            <p className="sandbox-note">
+              Note: This is a sandbox environment. Registration is disabled. Use the test user test@voice.com.
+            </p>
+            <button type="button" className="btn btn-secondary" onClick={handleBack}>
+              Back
+            </button>
           </form>
         </section>
       </main>
