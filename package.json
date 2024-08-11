@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^1.7.3",
     "bootstrap": "^4.6.0",
     "core-js": "^2.6.12",
     "joi": "^17.4.0",
@@ -23,6 +24,7 @@
     "react-scripts": "^4.0.3",
     "react-simply-carousel": "^5.0.2",
     "react-swipeable-views": "^0.14.0",
+    "uuid": "^10.0.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

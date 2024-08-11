@@ -1,34 +1,44 @@
-import React, { useState, createContext } from "react"
+import React, { useState, createContext } from "react";
 
-export const WarmUpContext = createContext()
+export const WarmUpContext = createContext();
 
 export const WarmUpProvider = (props) => {
-    const [warmUps, setWarmUps] = useState([])
+    const [warmUps, setWarmUps] = useState([]);
 
-    const getWarmUps = () => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator")
-        .then(res => res.json())
-        .then(setWarmUps)
-    }
+    const getWarmUps = async () => {
+        const response = await fetch("http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator");
+        const data = await response.json();
+        setWarmUps(data);
+    };
 
+    const addWarmUp = async (warmUpObj) => {
+        console.log("Adding warm-up:", warmUpObj); // Debugging line
 
-    const addWarmUp = typeObj => {
-        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator", {
+        const response = await fetch("http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator", {
             method: "POST",
             headers: {
-                "Content-WarmUp": "application/json"
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify(typeObj)
-        })
-        .then(getWarmUps)
-    }
+            body: JSON.stringify(warmUpObj)
+        });
+
+        if (!response.ok) {
+            console.error("Failed to add warm-up:", response.statusText); // Debugging line
+            return;
+        }
+
+        const responseData = await response.json();
+        console.log("Response from server:", responseData); // Debugging line
+
+        await getWarmUps();
+    };
 
     const deletePreset = userId => {
         return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com/warmUpGenerator/${userId}`, {
             method: "DELETE"
         })
-            .then(getWarmUps)
-    }
+            .then(getWarmUps);
+    };
 
     return (
         <WarmUpContext.Provider value={{
@@ -36,5 +46,5 @@ export const WarmUpProvider = (props) => {
         }}>
             {props.children}
         </WarmUpContext.Provider>
-    )
-}
+    );
+};
