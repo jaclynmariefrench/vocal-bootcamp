@@ -35,7 +35,7 @@ export const Login = props => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("vocal_user", exists.id)
-                    history.push("/user")
+                    history.push("/goals")
                 } else {
                     setShowError(true)
                 }
