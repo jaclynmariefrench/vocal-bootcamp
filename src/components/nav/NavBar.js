@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../user/UserProvider";
 import axios from "axios";
 import "./NavBar.css";
@@ -9,6 +9,7 @@ import backgroundImage from './camo.png';
 export const NavBar = (props) => {
   const { users, getUsers } = useContext(UserContext);
   const [currentUser, setCurrentUser] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     // Fetch users if not already fetched
@@ -72,6 +73,8 @@ export const NavBar = (props) => {
     // Remove user and session data from local storage
     localStorage.removeItem("vocal_user");
     localStorage.removeItem("sessionID");
+    setCurrentUser(null);
+    history.push("/login");
   };
 
   return (
