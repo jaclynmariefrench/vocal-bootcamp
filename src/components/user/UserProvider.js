@@ -8,9 +8,12 @@ export const UserProvider = (props) => {
     const [users, setUsers] = useState([])
 
     const getUsers = () => {
-        return fetch("  http://localhost:3000/users")
-        .then(res => res.json())
-        .then(setUsers)
+        return fetch("http://api.vocalbootcamp.jaclynmariefrench.com/users")
+            .then(res => res.json())
+            .then(data => {
+                setUsers(data);
+            })
+            .catch(error => console.error("Error fetching users:", error)); // Log any errors
     }
 
     return (
@@ -21,3 +24,4 @@ export const UserProvider = (props) => {
         </UserContext.Provider>
     )
 }
+

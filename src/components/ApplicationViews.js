@@ -1,5 +1,5 @@
-import React from "react";
-import { Route } from "react-router";
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router";
 import { GoalProvider } from "./goal/GoalProvider";
 import { TypeGoalForm } from "./type/TypeGoalForm";
 import { TypeProvider } from "./type/TypeProvider";
@@ -9,50 +9,69 @@ import { WarmUpNotesProvider } from "./notes/NotesProvider";
 import { NotesForm } from "./notes/NotesForm";
 import { NotesList } from "./notes/NotesList";
 import { WarmUpProvider } from "./generator/warmUpProvider";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import "./VocalBootcamp.css";
 
-
-
 export const ApplicationViews = () => {
+  useEffect(() => {
+    // Generate and store session ID
+    const sessionID = uuidv4();
+    localStorage.setItem("sessionID", sessionID);
   
+    // Create a new session with no associated notes and warm-ups
+    const createSession = async () => {
+      await axios.post("http://api.vocalbootcamp.jaclynmariefrench.com/sessions", {
+        id: sessionID,
+        notes: [],
+        warmUps: []
+      });
+    };
+  
+    createSession();
+  }, []);
+
   return (
     <>
-
       <Route path="/user">
         <UserProvider>
           <WarmUpNotesProvider>
             <TypeProvider>
               <WarmUpProvider>
-                <div className="audio-container">
-                  <AudioApp />
-                </div>
-                <div className="notes--add">
-                  <Route path="/user" >
-                    <NotesForm />
-                    <NotesList/>
-                  </Route>
-                </div>
-                <div className="notes--list">
-                  <Route exact path="/user/edit/:noteId(\d+)">
-                    <NotesForm />
-                  </Route>
-                </div>
+                <GoalProvider>
+                  <div className="audio-container">
+                    <AudioApp />
+                  </div>
+                  <div className="notes--add">
+                    <Switch>
+                      <Route exact path="/user/edit/:noteId">
+                        <NotesForm />
+                      </Route>
+                      <Route path="/user">
+                        <>
+                          <NotesForm />
+                          <NotesList />
+                        </>
+                      </Route>
+                    </Switch>
+                  </div>
+                </GoalProvider>
               </WarmUpProvider>
             </TypeProvider>
           </WarmUpNotesProvider>
         </UserProvider>
       </Route>
-    <div className="goals-style">
       <Route path="/goals">
-        <GoalProvider>
-          <TypeProvider>
+        <TypeProvider>
+          <GoalProvider>
             <WarmUpProvider>
-              <TypeGoalForm />
+              <div className="goals-style">
+                <TypeGoalForm />
+              </div>
             </WarmUpProvider>
-          </TypeProvider>
-        </GoalProvider>
+          </GoalProvider>
+        </TypeProvider>
       </Route>
-    </div>
     </>
   );
 };

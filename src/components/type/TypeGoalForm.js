@@ -7,11 +7,11 @@ import "./Types.css";
 
 export const TypeGoalForm = () => {
   // TYPES
-  const { types, getTypes, addType, addEditType } = useContext(TypeContext);
+  const { types = [], getTypes, addType, addEditType } = useContext(TypeContext);
   const { getWarmUps, warmUps } = useContext(WarmUpContext);
   const [type, setTypes] = useState({});
   // GOALS
-  const { goals, getWarmUpGoals } = useContext(GoalContext);
+  const { goals = [], getWarmUpGoals } = useContext(GoalContext);
   const [goal, setWarmupGoals] = useState({});
 
   const history = useHistory();
@@ -87,7 +87,7 @@ export const TypeGoalForm = () => {
             onChange={handleControlledInputChange}
           >
             <option value="0">Select a Type</option>
-            {types.map((t) => (
+            {types && types.map((t) => (
               <option key={t.id} value={t.id}>
                 {t.typeName}
               </option>
@@ -107,7 +107,7 @@ export const TypeGoalForm = () => {
             onChange={handleControlledInputChange}
           >
             <option value="0">Select a Goal</option>
-            {goals.map((g) => (
+            {goals && goals.map((g) => (
               <option key={g.id} value={g.id}>
                 {g.goalName}
               </option>

@@ -9,9 +9,23 @@ export const Login = props => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:3000/users?email=${email.current.value}`)
-            .then(res => res.json())
-            .then(user => user.length ? user[0] : false)
+        return fetch(`http://api.vocalbootcamp.jaclynmariefrench.com/users?email=${email.current.value}`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(users => {
+                if (Array.isArray(users) && users.length > 0) {
+                    return users[0];
+                }
+                return false;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                return false;
+            });
     }
 
     const handleLogin = (e) => {
@@ -63,3 +77,4 @@ export const Login = props => {
         </>
     )
 }
+
