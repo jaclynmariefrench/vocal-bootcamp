@@ -4,10 +4,7 @@
 Welcome to **Vocal Bootcamp**! 🎵 This app is your personal vocal coach, ready to provide custom warm-up routines based on your voice type and goals. Whether you're a Soprano, Alto, Tenor, or Bass, we've got you covered with audio examples and tailored routines to help you hit those high notes or deepen your low tones.
 
 ## 🚀 Try It Out!
-Check out the deployed app [here](http://vocalbootcamp.jaclynmariefrench.com/login).  
-To log in, use the following credentials:
-- **Username:** `test@voice.com`
-  
+Under Construction 🛂  
 Please note: Account creation is disabled for this demo.
 
 ## 🧐 What's the Problem?
