@@ -5,7 +5,6 @@ Welcome to **Vocal Bootcamp**! 🎵 This app is your personal vocal coach, ready
 
 ## 🚀 Try It Out!
 Under Construction 🛂  
-Please note: Account creation is disabled for this demo.
 
 ## 🧐 What's the Problem?
 
